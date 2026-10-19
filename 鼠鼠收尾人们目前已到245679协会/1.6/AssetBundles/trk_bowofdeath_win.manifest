@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 1146219686
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: a9c48fd64db65b8074e16956535982a5
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 0df1dec30b5d061d422d3e6493d27647
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: a9c48fd64db65b8074e16956535982a5
+HashAppended: 0
+ClassTypes:
+- Class: 48
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Data/Trk.Nine/Materials/Trk/BowOfDeathAimCharge.shader
+- Assets/Data/Trk.Nine/Materials/Trk/BowOfDeathAimWind.shader
+Dependencies: []
