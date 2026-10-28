@@ -67,11 +67,11 @@
     </comps>
   </HediffDef>
 
-  <!-- 二阶段护盾：真实伤害池(非能量)50点，15点/秒回复，由主状态组件加载/清理 -->
+  <!-- 单一护盾 Hediff：严重度 0.01 表示阶段 I，严重度 1 表示阶段 II。 -->
   <HediffDef>
     <defName>RK_DeliveryBox_HighPower_Shield</defName>
     <label>高功率护盾</label>
-    <description>高功率二阶段提供的真实伤害护盾，上限50点，15点/秒回复。</description>
+    <description>高功率模式提供的真实伤害护盾。阶段 I 上限20点，5点/秒回复；阶段 II 上限50点，15点/秒回复。</description>
     <hediffClass>XIYUNTE.Hediff_DeliveryBoxShield</hediffClass>
     <renderNodeProperties>
       <li Class="XIYUNTE.PawnRenderNodeProperties_DeliveryBoxShield">
@@ -85,12 +85,24 @@
     <scenarioCanAdd>false</scenarioCanAdd>
     <tendable>false</tendable>
     <everCurableByItem>false</everCurableByItem>
-    <initialSeverity>1</initialSeverity>
+    <initialSeverity>0.01</initialSeverity>
     <maxSeverity>1</maxSeverity>
+    <stages>
+      <li>
+        <minSeverity>0.01</minSeverity>
+        <label>I</label>
+      </li>
+      <li>
+        <minSeverity>1</minSeverity>
+        <label>II</label>
+      </li>
+    </stages>
     <comps>
       <li Class="XIYUNTE.HediffCompProperties_DeliveryBoxShieldEnergy">
-        <maxDamage>50</maxDamage>
-        <regenPerTick>0.25</regenPerTick>
+        <initialMaxDamage>20</initialMaxDamage>
+        <initialRegenPerSecond>5</initialRegenPerSecond>
+        <stage2MaxDamage>50</stage2MaxDamage>
+        <stage2RegenPerSecond>15</stage2RegenPerSecond>
       </li>
     </comps>
   </HediffDef>

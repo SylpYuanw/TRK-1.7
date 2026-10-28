@@ -240,7 +240,6 @@ namespace XIYUNTE
 
         private int elapsedTicks;
         private int nextBurnTick;
-        private bool shieldAdded;
         private bool stage3Announced;
 
         public int ElapsedTicks => elapsedTicks;
@@ -249,6 +248,13 @@ namespace XIYUNTE
         {
             base.CompPostMake();
             nextBurnTick = Props.stage3Tick;
+        }
+
+        public override void CompPostPostAdd(DamageInfo? dinfo)
+        {
+            base.CompPostPostAdd(dinfo);
+            Hediff shield = HediffMaker.MakeHediff(Props.shieldDef, Pawn);
+            Pawn.health.AddHediff(shield);
         }
 
         public override void CompPostTick(ref float severityAdjustment)
@@ -261,15 +267,10 @@ namespace XIYUNTE
             elapsedTicks++;
             parent.Severity = Mathf.Clamp01((float)elapsedTicks / Mathf.Max(1, Props.totalTicks));
 
-            // 二阶段：添加护盾（只加一次）。
-            if (!shieldAdded && elapsedTicks >= Props.stage2Tick)
+            if (elapsedTicks == Props.stage2Tick)
             {
-                shieldAdded = true;
-                if (Props.shieldDef != null && p.health.hediffSet.GetFirstHediffOfDef(Props.shieldDef) == null)
-                {
-                    Hediff shield = HediffMaker.MakeHediff(Props.shieldDef, p);
-                    p.health.AddHediff(shield);
-                }
+                Hediff shield = p.health.hediffSet.GetFirstHediffOfDef(Props.shieldDef);
+                shield.TryGetComp<HediffComp_DeliveryBoxShieldEnergy>().UpgradeToStageTwo();
             }
 
             // 进入三阶段时给玩家一次明确提示。
@@ -315,7 +316,6 @@ namespace XIYUNTE
             base.CompExposeData();
             Scribe_Values.Look(ref elapsedTicks, "elapsedTicks", 0);
             Scribe_Values.Look(ref nextBurnTick, "nextBurnTick", Props.stage3Tick);
-            Scribe_Values.Look(ref shieldAdded, "shieldAdded", false);
             Scribe_Values.Look(ref stage3Announced, "stage3Announced", false);
         }
 
@@ -336,7 +336,7 @@ namespace XIYUNTE
     }
 
     // ========================================================================
-    // 二阶段护盾：真实伤害池（非能量），50 上限，15/秒(0.25/tick) 无受击冷却回复。
+    // 派送箱护盾：严重度区分阶段 I/II，对应20/50上限和5/15点每秒回复。
     // 只拦外部伤害，手术伤害（SurgicalCut）放行。
     // ========================================================================
     public class Hediff_DeliveryBoxShield : HediffWithComps
@@ -345,8 +345,10 @@ namespace XIYUNTE
 
     public class HediffCompProperties_DeliveryBoxShieldEnergy : HediffCompProperties
     {
-        public float maxDamage = 50f;
-        public float regenPerTick = 0.25f; // 15/秒
+        public float initialMaxDamage = 20f;
+        public float initialRegenPerSecond = 5f;
+        public float stage2MaxDamage = 50f;
+        public float stage2RegenPerSecond = 15f;
 
         public HediffCompProperties_DeliveryBoxShieldEnergy()
         {
@@ -361,19 +363,30 @@ namespace XIYUNTE
         private float damagePool;
 
         public float DamagePool => damagePool;
+        public float MaxDamage => parent.Severity >= 1f ? Props.stage2MaxDamage : Props.initialMaxDamage;
         public bool Depleted => damagePool <= 0f;
 
         public override void CompPostMake()
         {
             base.CompPostMake();
-            damagePool = Props.maxDamage;
+            damagePool = Props.initialMaxDamage;
         }
 
         public override void CompPostTick(ref float severityAdjustment)
         {
             base.CompPostTick(ref severityAdjustment);
-            if (damagePool < Props.maxDamage)
-                damagePool = Mathf.Min(Props.maxDamage, damagePool + Props.regenPerTick);
+            float maxDamage = MaxDamage;
+            float regenPerTick = (parent.Severity >= 1f ? Props.stage2RegenPerSecond : Props.initialRegenPerSecond) / 60f;
+            if (damagePool < maxDamage)
+                damagePool = Mathf.Min(maxDamage, damagePool + regenPerTick);
+        }
+
+        public void UpgradeToStageTwo()
+        {
+            if (parent.Severity >= 1f)
+                return;
+            parent.Severity = 1f;
+            damagePool = Props.stage2MaxDamage;
         }
 
         // 从护盾池扣除伤害，返回实际吸收量；未吸收完的部分留在 damage 中（溢出漏给受术者）。
@@ -390,7 +403,7 @@ namespace XIYUNTE
         public override void CompExposeData()
         {
             base.CompExposeData();
-            Scribe_Values.Look(ref damagePool, "damagePool", Props.maxDamage);
+            Scribe_Values.Look(ref damagePool, "damagePool", Props.initialMaxDamage);
         }
     }
 

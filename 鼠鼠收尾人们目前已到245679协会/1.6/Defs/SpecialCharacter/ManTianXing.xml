@@ -64,6 +64,7 @@
 [更正，是波鲁德尼察，错误的称呼可能会导致派送箱无法启动]
 
 “唉...?”</detailedReport>
+    <arrivalGreeting>感谢您支持Девять协会的人员长期派遣服务，不过，我没迟到吧？</arrivalGreeting>
     <pawnKind>TRK_Special_ManTianXing</pawnKind>
     <association>九协会 · 北部Девять协会</association>
     <iconPath>SpecialCharacter/ManTianXing</iconPath>
@@ -113,6 +114,7 @@
     <inventory>
       <li><thing>RK_Food_Hardtack</thing><count>9</count><hitPoints>50</hitPoints></li>
       <li><thing>Silver</thing><count>300</count><hitPoints>100</hitPoints></li>
+      <li MayRequire="fxz.myafufu"><thing>FuFu_ManTianXing</thing><count>1</count><hitPoints>300</hitPoints></li>
     </inventory>
   </XIYUNTE.SpecialCharacter.SpecialCharacterDef>
 </Defs>

@@ -84,23 +84,13 @@ namespace XIYUNTE
             HediffComp_DeliveryBoxShieldEnergy shieldComp = GetShieldComp();
             if (shieldComp != null)
             {
-                float fill = Mathf.Clamp01(shieldComp.DamagePool / Mathf.Max(1f, shieldComp.Props.maxDamage));
+                float fill = Mathf.Clamp01(shieldComp.DamagePool / Mathf.Max(1f, shieldComp.MaxDamage));
                 Widgets.FillableBar(shieldBar, fill, FullShieldBarTex, EmptyBarTex, false);
                 Text.Font = GameFont.Tiny;
                 Text.Anchor = TextAnchor.MiddleCenter;
                 // 文字框 = 护盾框(对齐且不小于文字),一行显示。
                 Rect shieldLabelRect = shieldBar;
-                Widgets.Label(shieldLabelRect, "RK_DeliveryBox_HighPower_ShieldValue".Translate(shieldComp.DamagePool.ToString("F0"), shieldComp.Props.maxDamage.ToString("F0")).ToString());
-                Text.Anchor = TextAnchor.UpperLeft;
-            }
-            else
-            {
-                Text.Font = GameFont.Tiny;
-                Text.Anchor = TextAnchor.MiddleCenter;
-                GUI.color = new Color(0.6f, 0.6f, 0.6f);
-                Rect shieldLabelRect = shieldBar;
-                Widgets.Label(shieldLabelRect, "RK_DeliveryBox_HighPower_ShieldInactive".Translate().ToString());
-                GUI.color = Color.white;
+                Widgets.Label(shieldLabelRect, "RK_DeliveryBox_HighPower_ShieldValue".Translate(shieldComp.DamagePool.ToString("F0"), shieldComp.MaxDamage.ToString("F0")).ToString());
                 Text.Anchor = TextAnchor.UpperLeft;
             }
 

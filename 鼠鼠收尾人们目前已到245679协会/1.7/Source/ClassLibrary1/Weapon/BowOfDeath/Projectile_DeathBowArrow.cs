@@ -18,7 +18,7 @@ namespace XIYUNTE
                 return;
             }
             HediffDef arrowDef = DeathBowDefOf.BowOfDeath_StuckArrow;
-            if (pawn.health.hediffSet.GetHediffCount(arrowDef) >= MaxArrowStacks)
+            if (BowOfDeathArrowRecovery.CountStacks(pawn) >= MaxArrowStacks)
             {
                 return;
             }

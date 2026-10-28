@@ -37,6 +37,7 @@
 离开骑士团后，她加入了Zwei协会。面对威胁，她更愿意用近身交锋迅速结束冲突；面对委托人，她却很少提高声音。休息时，她会找一处能看见出入口的位置坐下，直到同行的人回来，才慢慢卸下厚重的大衣。
 
 Hana协会确认其派遣资料。山荷叶愿意承担殖民地的巡逻、护卫和建设工作。她对新驻地没有太多要求，只希望每次说出“我们回去吧”的时候，身边的人都还在。</detailedReport>
+    <arrivalGreeting>之后就是长期合作的客户啦，不过开工前不介意我先来一根吧，额，如果禁烟的话就算了。</arrivalGreeting>
     <pawnKind>TRK_Special_ShanHeYe</pawnKind>
     <association>二协会 · 南部Zwei协会</association>
     <iconPath>SpecialCharacter/ShanHeYe</iconPath>
@@ -86,6 +87,7 @@ Hana协会确认其派遣资料。山荷叶愿意承担殖民地的巡逻、护�
     <inventory>
       <li><thing>RK_Food_Hardtack</thing><count>2</count><hitPoints>50</hitPoints></li>
       <li><thing>SmokeleafJoint</thing><count>20</count><hitPoints>50</hitPoints></li>
+      <li MayRequire="fxz.myafufu"><thing>FuFu_ShanHeYe</thing><count>1</count><hitPoints>300</hitPoints></li>
     </inventory>
   </XIYUNTE.SpecialCharacter.SpecialCharacterDef>
 </Defs>

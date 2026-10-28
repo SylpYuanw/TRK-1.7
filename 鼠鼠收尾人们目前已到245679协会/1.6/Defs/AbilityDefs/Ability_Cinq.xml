@@ -24,7 +24,8 @@
       <targetParams>
         <canTargetSelf>true</canTargetSelf>
       </targetParams>
-      <warmupTime>0.1</warmupTime>
+      <warmupTime>0.5</warmupTime>
+      <soundCast>MeleeHit_Metal_Sharp</soundCast>
     </verbProperties>
     <comps>
       <li Class="XIYUNTE.CompProperties_CinqDuelDeclaration">

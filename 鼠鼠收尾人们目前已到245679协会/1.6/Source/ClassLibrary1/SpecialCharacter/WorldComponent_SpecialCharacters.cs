@@ -274,8 +274,11 @@ namespace XIYUNTE.SpecialCharacter
                 order.pod = null;
                 order.destination = null;
                 order.payment.ClearAndDestroyContents();
+                string arrivalText = "TRK_SC_ArrivalText".Translate(pawn.LabelShort, order.character.association);
+                if (!order.character.arrivalGreeting.NullOrEmpty())
+                    arrivalText = pawn.LabelShort + "：" + order.character.arrivalGreeting + "\n\n" + arrivalText;
                 Find.LetterStack.ReceiveLetter("TRK_SC_ArrivalLabel".Translate(pawn.LabelShort),
-                    "TRK_SC_ArrivalText".Translate(pawn.LabelShort, order.character.association),
+                    arrivalText,
                     LetterDefOf.PositiveEvent, pawn);
             }
         }

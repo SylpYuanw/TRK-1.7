@@ -58,6 +58,11 @@
         <cooldownTime>2.5</cooldownTime>
       </li>
     </tools>
+    <modExtensions>
+      <li Class="XIYUNTE.MeleeAttackEffectExtension">
+        <attackEffecter>RK_Seven_AttackEffect</attackEffecter>
+      </li>
+    </modExtensions>
     <recipeMaker>
       <researchPrerequisite>RK_Research_SwordAndShield</researchPrerequisite>
       <skillRequirements>
@@ -70,6 +75,56 @@
         <gripTypes>
           <li>OneHand</li>
         </gripTypes>
+      </li>
+      <!-- 背负(收鞘)显示：未持握时使用收鞘贴图，拔出后使用完整贴图。
+           贴图 Weapon/sevenC_Sheath_north 与 Weapon/sevenC_Full_east 已存在，其余方向由
+           Graphic_Multi 按 _north→_south/east/west 的规则自动回退。 -->
+      <li Class="SYS.CompProperties_Sheath">
+        <sheathOnlyGraphicData>
+          <texPath>Weapon/sevenC_Sheath</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+        </sheathOnlyGraphicData>
+        <fullGraphicData>
+          <texPath>Weapon/sevenC_Full</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+        </fullGraphicData>
+        <drawPosition>Side</drawPosition>
+        <!-- 四向偏移与角度沿用 Cinq 刺剑的配置，Seven 剑贴图比例不同，若位置有偏差在此微调。 -->
+        <northOffset>
+          <position>(0.2,0,-0.2)</position>
+          <angle>-60</angle>
+        </northOffset>
+        <southOffset>
+          <position>(-0.2,0,-0.2)</position>
+          <angle>0</angle>
+        </southOffset>
+        <eastOffset>
+          <position>(0,-0.3,-0.2)</position>
+          <angle>120</angle>
+        </eastOffset>
+        <westOffset>
+          <position>(0,0,-0.2)</position>
+          <angle>-120</angle>
+        </westOffset>
+      </li>
+      <!-- 手持四向参数：用于征召待机时的手持姿态，直接读取 angle，不叠加 equippedAngleOffset。 -->
+      <li Class="SYS.CompProperties_WeaponExtention">
+        <northOffset>
+          <position>(0.3,0,0.15)</position>
+          <angle>-132</angle>
+        </northOffset>
+        <eastOffset>
+          <position>(0.3,0,0.15)</position>
+          <angle>-115</angle>
+        </eastOffset>
+        <southOffset>
+          <position>(-0.3,0.3,0.15)</position>
+          <angle>132</angle>
+        </southOffset>
+        <westOffset>
+          <position>(-0.3,-0.3,0.15)</position>
+          <angle>115</angle>
+        </westOffset>
       </li>
     </comps>
   </ThingDef>

@@ -40,6 +40,7 @@
 她的记忆很好，休息却很差。已经确认过的细节也会让她在夜里起身再核对一遍，桌上的浓茶往往凉了才被想起。任务结束后，她习惯将零散笔记重新誊写，直到每个人名、每处地点都有能够相互印证的出处。
 
 Hana协会确认其派遣资料。苍月草愿意协助殖民地整理研究与调查工作；请给她一张安静的桌子，以及能够按时收工的理由。</detailedReport>
+    <arrivalGreeting>请问有清醒丸吗？啊不，不是有瘾，只是这样能让效率高点，没有或者不让的话就算了……</arrivalGreeting>
     <pawnKind>TRK_Special_CangYueCao</pawnKind>
     <association>七协会 · 南部Seven协会</association>
     <iconPath>SpecialCharacter/CangYueCao</iconPath>
@@ -141,6 +142,11 @@ Hana协会确认其派遣资料。苍月草愿意协助殖民地整理研究与�
         <thing>PsychiteTea</thing>
         <count>7</count>
         <hitPoints>50</hitPoints>
+      </li>
+      <li MayRequire="fxz.myafufu">
+        <thing>FuFu_CangYueCao</thing>
+        <count>1</count>
+        <hitPoints>300</hitPoints>
       </li>
     </inventory>
   </XIYUNTE.SpecialCharacter.SpecialCharacterDef>

@@ -36,6 +36,7 @@
 退役后，她选择了Liu协会。她喜欢这里热闹的饭桌，也愿意为桌边的人冲在前面。执行委托时，她会反复确认同伴的位置；回程时则把长剑收好，拿出随身的草莓酒，等最后一个人回来再打开。
 
 Hana协会确认其派遣资料。火焰兰愿意承担殖民地的战斗与救护工作，也希望新的同伴能够记住：需要帮忙时直接叫她，别独自撑到最后。</detailedReport>
+    <arrivalGreeting>虽然要一个人被派遣到一个陌生的地方，不过让我见识一下这里的战斗方式吧，把我派到最前方让我好好看看吧。哦，还有，我带了点草莓精酿，哎嘿嘿……</arrivalGreeting>
     <pawnKind>TRK_Special_HuoYanLan</pawnKind>
     <association>六协会 · 南部Liu协会</association>
     <iconPath>SpecialCharacter/HuoYanLan</iconPath>
@@ -85,6 +86,7 @@ Hana协会确认其派遣资料。火焰兰愿意承担殖民地的战斗与救�
     <inventory>
       <li><thing>RK_Food_Hardtack</thing><count>6</count><hitPoints>50</hitPoints></li>
       <li><thing>RK_StrawberryBeer</thing><count>6</count><hitPoints>50</hitPoints></li>
+      <li MayRequire="fxz.myafufu"><thing>FuFu_HuoYanLan</thing><count>1</count><hitPoints>300</hitPoints></li>
     </inventory>
   </XIYUNTE.SpecialCharacter.SpecialCharacterDef>
 </Defs>

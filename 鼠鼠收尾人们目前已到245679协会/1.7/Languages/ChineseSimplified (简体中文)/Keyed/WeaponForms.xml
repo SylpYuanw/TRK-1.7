@@ -15,7 +15,6 @@
   <RK_DeliveryBox_HighPower_StatusTitle>高功率模式</RK_DeliveryBox_HighPower_StatusTitle>
   <RK_DeliveryBox_HighPower_RemainingTime>剩余 {0} 小时</RK_DeliveryBox_HighPower_RemainingTime>
   <RK_DeliveryBox_HighPower_ShieldValue>{0} / {1}</RK_DeliveryBox_HighPower_ShieldValue>
-  <RK_DeliveryBox_HighPower_ShieldInactive>护盾未激活</RK_DeliveryBox_HighPower_ShieldInactive>
 
   <!-- 突破工具技能：仅在派送箱处于突破工具形态时可用 -->
   <RK_BreakthroughTool_RequiresMode>必须使用突破工具形态的派送箱。</RK_BreakthroughTool_RequiresMode>

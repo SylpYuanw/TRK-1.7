@@ -28,20 +28,19 @@
     <products>
       <Bow_of_Death_Arrow>1</Bow_of_Death_Arrow>
     </products>
-    <recipeUsers>
-      <li>TableMachining</li>
-      <li>ElectricSmithy</li>
-      <li>FueledSmithy</li>
+    <recipeUsers Inherit="false">
+      <li>RK_FueledSmithy</li>
+      <li>RK_ElectricSmithy</li>
     </recipeUsers>
   </RecipeDef>
 
-  <!-- 取出箭矢:一次手术清除目标身上全部"箭矢"层数,与豪猪棘刺同结构。 -->
+  <!-- 取出箭矢:一次手术清除目标身上全部"箭矢"层数,并按移除层数返还死之箭。 -->
   <RecipeDef ParentName="SurgeryFlesh">
     <defName>RemoveBowOfDeathArrow</defName>
     <label>取出箭矢</label>
     <description>取出嵌入体内的死之箭。</description>
     <jobString>正在取出箭矢。</jobString>
-    <workerClass>Recipe_RemoveHediff</workerClass>
+    <workerClass>XIYUNTE.Recipe_RemoveBowOfDeathArrow</workerClass>
     <removesHediff>BowOfDeath_StuckArrow</removesHediff>
     <targetsBodyPart>false</targetsBodyPart>
     <anesthetize>false</anesthetize>

@@ -41,6 +41,7 @@
 她喜欢把工作说成比赛，却从不拿委托人的安全当赌注。出发前会仔细检查迅捷剑和羽毛帽，再往口袋里塞几块巧克力。那些甜食通常会在途中分给疲惫的同行者；至于自己，她说到终点再吃也来得及。
 
 Hana协会确认其派遣资料。五桠果希望新殖民地有足够宽敞的训练场，也希望自己的下一份工作，能让更多人平安回家。</detailedReport>
+    <arrivalGreeting>是长期需求代理决斗的客户啊，感谢收到您的认可，我也为此表达谢意。</arrivalGreeting>
     <pawnKind>TRK_Special_WuYaGuo</pawnKind>
     <association>五协会 · 南部Cinq协会</association>
     <iconPath>SpecialCharacter/WuYaGuo</iconPath>
@@ -145,6 +146,11 @@ Hana协会确认其派遣资料。五桠果希望新殖民地有足够宽敞的�
         <thing>RK_Food_Hardtack</thing>
         <count>5</count>
         <hitPoints>50</hitPoints>
+      </li>
+      <li MayRequire="fxz.myafufu">
+        <thing>FuFu_WuYaGuo</thing>
+        <count>1</count>
+        <hitPoints>300</hitPoints>
       </li>
     </inventory>
   </XIYUNTE.SpecialCharacter.SpecialCharacterDef>

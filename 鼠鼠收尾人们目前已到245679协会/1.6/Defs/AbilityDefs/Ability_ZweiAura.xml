@@ -22,6 +22,8 @@
       <range>10</range>
       <drawAimPie>false</drawAimPie>
       <requireLineOfSight>false</requireLineOfSight>
+      <soundCast>EnergyShield_Reset</soundCast>
+      <warmupTime>0.5</warmupTime>
       <targetParams>
         <canTargetSelf>true</canTargetSelf>
         <canTargetPawns>false</canTargetPawns>

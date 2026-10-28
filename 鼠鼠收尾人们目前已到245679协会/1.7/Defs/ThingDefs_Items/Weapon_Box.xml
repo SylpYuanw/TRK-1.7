@@ -31,8 +31,7 @@
     </stuffCategories>
     <costList>
       <Steel>50</Steel>
-      <Silver>15</Silver>
-      <WoodLog>45</WoodLog>
+      <ComponentIndustrial>15</ComponentIndustrial>
     </costList>
     <!-- 静态 tools 使用箱体形态数据:用于通过原版"equipment has no verbs or tools"配置检查,并让武器卡显示默认形态的近战 DPS/穿透;实际攻击动词由运行时 IVerbOwner 按当前形态提供。 -->
     <tools>
@@ -332,10 +331,14 @@
       </li>
     </comps>
     <recipeMaker>
-      <researchPrerequisite>LongBlades</researchPrerequisite>
+      <!-- 父类 BaseMeleeWeapon 的 recipeUsers 为 ElectricSmithy / FueledSmithy；
+           Inherit="false" 覆盖父列表，只保留机械加工台，解锁科技同步改为机械加工。 -->
+      <recipeUsers Inherit="false">
+        <li>TableMachining</li>
+      </recipeUsers>
+      <researchPrerequisite>Machining</researchPrerequisite>
       <skillRequirements>
         <Crafting>7</Crafting>
-        <Artistic>3</Artistic>
       </skillRequirements>
     </recipeMaker>
   </ThingDef>

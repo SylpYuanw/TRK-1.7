@@ -43,5 +43,8 @@
     <li>brrainz.harmony</li>
     <li>Solaris.RatkinRaceMod</li>
     <li>Chezhou.RimUnity</li>
+    <!-- 软前置：仅当 Mya's fufu 激活时加载本模组的 fufu 建筑（目录由 LoadFolders.xml 的 IfModActive 控制，
+         Def 由 MayRequire 控制）。写在此处只调整加载顺序，不构成硬依赖。 -->
+    <li>fxz.myafufu</li>
   </loadAfter>
 </ModMetaData>

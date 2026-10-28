@@ -5,6 +5,7 @@ using HarmonyLib;
 using RimWorld;
 using UnityEngine;
 using Verse;
+using Verse.Sound;
 
 namespace XIYUNTE.SpecialCharacter
 {
@@ -91,6 +92,8 @@ namespace XIYUNTE.SpecialCharacter
             Text.Anchor = TextAnchor.UpperLeft;
             bool details = Widgets.ButtonText(new Rect(card.x + 12f, card.y + 184f, card.width - 24f, 38f),
                 "TRK_SC_Details".Translate());
+            if (details)
+                SoundDefOf.Click.PlayOneShotOnCamera();
             SpecialCharacterOrder order = service.GetOrder(def);
             if (order != null)
             {
@@ -135,6 +138,7 @@ namespace XIYUNTE.SpecialCharacter
             Rect back = new Rect(0f, rect.height - 46f, 160f, 38f);
             if (Widgets.ButtonText(back, "TRK_SC_Back".Translate()))
             {
+                SoundDefOf.Click.PlayOneShotOnCamera();
                 ClearDetails();
                 return;
             }
@@ -165,6 +169,7 @@ namespace XIYUNTE.SpecialCharacter
                     alpha: enabled ? 1f : 0.5f);
             if (clicked)
             {
+                SoundDefOf.Click.PlayOneShotOnCamera();
                 if (refund)
                     reply = service.Refund(order, map, negotiator.Position)
                         ? "TRK_SC_Refunded".Translate() : "TRK_SC_RefundFailed".Translate();

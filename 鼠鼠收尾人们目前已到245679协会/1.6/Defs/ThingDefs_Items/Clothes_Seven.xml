@@ -137,7 +137,7 @@
     <apparel>
       <drawData>
         <defaultData>
-          <offset>(-0.002,-0.001,0)</offset>
+          <offset>(-0.002,0,0)</offset>
         </defaultData>
       </drawData>
       <developmentalStageFilter>Adult</developmentalStageFilter>

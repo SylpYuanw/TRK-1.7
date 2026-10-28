@@ -2,15 +2,15 @@ $ErrorActionPreference = 'Stop'
 $modRoot = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..\..'))
 $defs = [Xml.XmlDocument]::new()
 [void]$defs.AppendChild($defs.CreateElement('Defs'))
-foreach ($filename in @('WuYaGuo.xml','CangYueCao.xml','HuoYanLan.xml','ShanHeYe.xml')) {
+foreach ($filename in @('WuYaGuo.xml','CangYueCao.xml','HuoYanLan.xml','ShanHeYe.xml','JingLingLan.xml')) {
     [xml]$member = Get-Content -LiteralPath (Join-Path $modRoot ('Defs\SpecialCharacter\' + $filename)) -Raw -Encoding UTF8
     foreach ($node in $member.SelectNodes('/Defs/*')) { [void]$defs.DocumentElement.AppendChild($defs.ImportNode($node,$true)) }
 }
-$records = @(foreach ($snapshot in @('pawnslots_五桠果_苍月草.txt','pawnslots_HuoYanLan.txt','pawnslots_ShanHeYe.txt')) {
+$records = @(foreach ($snapshot in @('pawnslots_五桠果_苍月草.txt','pawnslots_HuoYanLan.txt','pawnslots_ShanHeYe.txt','pawnslots_JingLingLan.txt')) {
     Get-Content -LiteralPath (Join-Path $modRoot ('Source\ClassLibrary1\SpecialCharacter\' + $snapshot)) -Encoding UTF8 | Where-Object { $_.Trim() }
 })
-if ($records.Count -ne 4 -or @($records | ForEach-Object { $_.Split('*')[0] } | Sort-Object -Unique).Count -ne 4) { throw '导出应有四条不同人物记录。' }
-$clothesFiles = @{ '五桠果' = 'Clothes_Cinq.xml'; '苍月草' = 'Clothes_Seven.xml'; '火焰兰' = 'Clothes_Liu.xml'; '山荷叶' = 'Clothes_Zwei.xml' }
+if ($records.Count -ne 5 -or @($records | ForEach-Object { $_.Split('*')[0] } | Sort-Object -Unique).Count -ne 5) { throw '导出应有五条不同人物记录。' }
+$clothesFiles = @{ '五桠果' = 'Clothes_Cinq.xml'; '苍月草' = 'Clothes_Seven.xml'; '火焰兰' = 'Clothes_Liu.xml'; '山荷叶' = 'Clothes_Zwei.xml'; '精灵兰' = 'Clothes_Si.xml' }
 $faDefs = @{}
 foreach ($file in Get-ChildItem -LiteralPath 'D:\Steam\steamapps\workshop\content\294100\2852881266\1.6\Defs\FaceTypeDefs' -Filter '*.xml' -File) {
     [xml]$xml = Get-Content -LiteralPath $file.FullName -Raw -Encoding UTF8
@@ -56,14 +56,15 @@ foreach ($record in $records) {
         if (!$trait -or [int]$trait.InnerText -ne [int]$parts[1]) { throw ($name + '特质不符。') }
     }
     foreach ($group in @(@('weapon',26), @('apparel',27), @('inventory',28))) {
-        $items = if ($group[0] -eq 'weapon') { @($profile.weapon) } else { @($profile.($group[0]).li) }
+        $items = if ($group[0] -eq 'weapon') { @($profile.weapon) } else { @($profile.($group[0]).li | Where-Object { !$_.MayRequire }) }
         $rawItems = $slot[$group[1]].Split(':')
         if ($items.Count -ne $rawItems.Count) { throw ($name + '物品数量不符。') }
         foreach ($raw in $rawItems) {
             $parts = $raw.Split('|')
             $item = @($items | Where-Object { $_.thing -ceq $parts[0] })
+            $expectedHitPoints = if ($name -eq '精灵兰' -and $parts[0] -eq 'Bow_of_Death_Arrow' -and [int]$parts[5] -eq -1) { 100 } else { [int]$parts[5] }
             if ($item.Count -ne 1 -or [string]$item[0].stuff -cne $parts[1] -or
-                [int]$item[0].count -ne [int]$parts[4] -or [int]$item[0].hitPoints -ne [int]$parts[5]) { throw ($name + '物品配置不符。') }
+                [int]$item[0].count -ne [int]$parts[4] -or [int]$item[0].hitPoints -ne $expectedHitPoints) { throw ($name + '物品配置不符。') }
             if ($parts[1] -and $item[0].quality -cne $qualityNames[[int]$parts[3]]) { throw ($name + '品质不符。') }
             if ($group[0] -eq 'apparel') {
                 $expected = '(' + ((@($parts[2].Split('-') | ForEach-Object { ([Convert]::ToInt32($_,16)/255.0).ToString('0.000',[Globalization.CultureInfo]::InvariantCulture) })) -join ',') + ')'

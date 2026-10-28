@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!--
+    本文件的 ThingDef 全部继承前置模组 Mya's fufu（packageId: fxz.myafufu）的抽象基类 FufuBase，
+    并依赖该模组提供的 Fufu.Fufu 程序集、JoyKind Playing_Fufu 与 Fufu_TailoringBench 等 Def。
+    因此每条 ThingDef 都带 MayRequire="fxz.myafufu"：前置激活时正常加载；前置缺失时整条 Def 在
+    XML 注册阶段被跳过（XmlInheritance.TryRegister 先判 MayRequire 再解析 ParentName），不会去
+    解析缺失的 FufuBase，也不产生交叉引用错误。
+    本目录由 LoadFolders.xml 的 IfModActive="fxz.myafufu" 条件加载，前置缺失时整份文件不进入读取列表；
+    加载顺序由 About.xml 的 loadAfter（fxz.myafufu）保证，使 FufuBase 的模组加载序早于本模组，
+    XmlInheritance.GetBestParentFor 才能把该抽象 Def 选为父节点。
+  -->
+
+  <!-- 张施娜 -->
+  <ThingDef ParentName="FufuBase" MayRequire="fxz.myafufu">
+    <defName>FuFu_ZhangShiNa</defName>
+    <label>"张施娜" fufu</label>
+    <description>Your geomancy is very poor, but piles of turrets and firearms make up for it.</description>
+    <graphicData>
+      <texPath>fufu/Hana/ZhangShiNa</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <damageData>
+        <rect>(0.35,0.35,0.3,0.3)</rect>
+      </damageData>
+      <drawOffset>(0,0,0.4)</drawOffset>
+    </graphicData>
+  </ThingDef>
+
+  <!-- 山荷叶 -->
+  <ThingDef ParentName="FufuBase" MayRequire="fxz.myafufu">
+    <defName>FuFu_ShanHeYe</defName>
+    <label>"山荷叶" fufu</label>
+    <description>Your geomancy is very poor, but piles of turrets and firearms make up for it.</description>
+    <graphicData>
+      <texPath>fufu/Zwei/ShanHeYe</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <damageData>
+        <rect>(0.35,0.35,0.3,0.3)</rect>
+      </damageData>
+      <drawOffset>(0,0,0.4)</drawOffset>
+    </graphicData>
+  </ThingDef>
+
+  <!-- 精灵兰 -->
+  <ThingDef ParentName="FufuBase" MayRequire="fxz.myafufu">
+    <defName>FuFu_JingLingLan</defName>
+    <label>"精灵兰" fufu</label>
+    <description>Your geomancy is very poor, but piles of turrets and firearms make up for it.</description>
+    <graphicData>
+      <texPath>fufu/Si/JingLingLan</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <damageData>
+        <rect>(0.35,0.35,0.3,0.3)</rect>
+      </damageData>
+      <drawOffset>(0,0,0.4)</drawOffset>
+    </graphicData>
+  </ThingDef>
+
+  <!-- 五桠果 -->
+  <ThingDef ParentName="FufuBase" MayRequire="fxz.myafufu">
+    <defName>FuFu_WuYaGuo</defName>
+    <label>"五桠果" fufu</label>
+    <description>Your geomancy is very poor, but piles of turrets and firearms make up for it.</description>
+    <graphicData>
+      <texPath>fufu/Cinq/WuYaGuo</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <damageData>
+        <rect>(0.35,0.35,0.3,0.3)</rect>
+      </damageData>
+      <drawOffset>(0,0,0.4)</drawOffset>
+    </graphicData>
+  </ThingDef>
+
+  <!-- 火焰兰 -->
+  <ThingDef ParentName="FufuBase" MayRequire="fxz.myafufu">
+    <defName>FuFu_HuoYanLan</defName>
+    <label>"火焰兰" fufu</label>
+    <description>Your geomancy is very poor, but piles of turrets and firearms make up for it.</description>
+    <graphicData>
+      <texPath>fufu/Liu/HuoYanLan</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <damageData>
+        <rect>(0.35,0.35,0.3,0.3)</rect>
+      </damageData>
+      <drawOffset>(0,0,0.4)</drawOffset>
+    </graphicData>
+  </ThingDef>
+
+  <!-- 苍月草 -->
+  <ThingDef ParentName="FufuBase" MayRequire="fxz.myafufu">
+    <defName>FuFu_CangYueCao</defName>
+    <label>"苍月草" fufu</label>
+    <description>Your geomancy is very poor, but piles of turrets and firearms make up for it.</description>
+    <graphicData>
+      <texPath>fufu/Seven/CangYueCao</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <damageData>
+        <rect>(0.35,0.35,0.3,0.3)</rect>
+      </damageData>
+      <drawOffset>(0,0,0.4)</drawOffset>
+    </graphicData>
+  </ThingDef>
+
+  <!-- 满天星 -->
+  <ThingDef ParentName="FufuBase" MayRequire="fxz.myafufu">
+    <defName>FuFu_ManTianXing</defName>
+    <label>"满天星" fufu</label>
+    <description>Your geomancy is very poor, but piles of turrets and firearms make up for it.</description>
+    <graphicData>
+      <texPath>fufu/Nine/ManTianXing</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <damageData>
+        <rect>(0.35,0.35,0.3,0.3)</rect>
+      </damageData>
+      <drawOffset>(0,0,0.4)</drawOffset>
+    </graphicData>
+  </ThingDef>
+</Defs>

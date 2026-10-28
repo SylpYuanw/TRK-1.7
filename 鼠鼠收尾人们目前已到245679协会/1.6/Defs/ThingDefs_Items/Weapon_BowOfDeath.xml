@@ -33,10 +33,11 @@
       <AccuracyMedium>0.84</AccuracyMedium>
       <AccuracyLong>0.74</AccuracyLong>
     </statBases>
-    <!-- 制作:沿用参考文件(手工制作点 + 大弓研究 + 6 级手工)。 -->
-    <costList>
-      <WoodLog>60</WoodLog>
-    </costList>
+    <!-- 制作:造价改为 100 任意金属,制作台改为鼠族锻造台(电力/燃料),研究沿用大弓。 -->
+    <costStuffCount>100</costStuffCount>
+    <stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
     <!-- 近战部分:弓臂,24 利器伤害、34% 穿透、2.4 秒冷却,四档蓄力都不改变近战面板。 -->
     <tools>
       <li>
@@ -154,9 +155,18 @@
         </westOffset>
       </li>
     </comps>
+    <!-- 近战攻击特效:仅弓臂近战挥击生成,闪弓射击走远程链路不受影响。 -->
+    <modExtensions>
+      <li Class="XIYUNTE.MeleeAttackEffectExtension">
+        <attackEffecter>RK_Si_AttackEffect</attackEffecter>
+      </li>
+    </modExtensions>
     <recipeMaker>
-      <recipeUsers>
-        <li>CraftingSpot</li>
+      <!-- 制作台由鼠族锻造台承载：电力锻造台与燃料锻造台各一。
+           Inherit="false" 覆盖可能从父类继承的配方台列表，避免同时出现在原版手工加工点。 -->
+      <recipeUsers Inherit="false">
+        <li>RK_FueledSmithy</li>
+        <li>RK_ElectricSmithy</li>
       </recipeUsers>
       <researchPrerequisite>Greatbow</researchPrerequisite>
       <skillRequirements>

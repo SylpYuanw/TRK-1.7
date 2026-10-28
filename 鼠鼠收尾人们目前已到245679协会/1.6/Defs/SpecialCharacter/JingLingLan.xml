@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <PawnKindDef ParentName="RKBasePawnKind">
+    <defName>TRK_Special_JingLingLan</defName>
+    <label>精灵兰</label>
+    <defaultFactionType>RK_PlayerFaction</defaultFactionType>
+    <fixedGender>Female</fixedGender>
+    <minGenerationAge>23</minGenerationAge>
+    <maxGenerationAge>23</maxGenerationAge>
+    <allowOldAgeInjuries>false</allowOldAgeInjuries>
+    <fixedChildBackstories><li>Ratkin_Successor</li></fixedChildBackstories>
+    <fixedAdultBackstories><li>Ratkin_Hunter</li></fixedAdultBackstories>
+    <forcedTraits>
+      <ShootingAccuracy>1</ShootingAccuracy>
+      <Psychopath>0</Psychopath>
+      <Immunity>1</Immunity>
+    </forcedTraits>
+    <forcedHair>RK_PonyA</forcedHair>
+    <forcedHairColor>(0.714,0.718,0.729,1.000)</forcedHairColor>
+    <invNutrition>0</invNutrition>
+    <invFoodDef IsNull="True" />
+    <xenotypeSet IsNull="True" />
+    <apparelMoney>0</apparelMoney>
+    <weaponMoney>0</weaponMoney>
+    <generateInitialNonFamilyRelations>false</generateInitialNonFamilyRelations>
+    <showInDebugSpawner>false</showInDebugSpawner>
+  </PawnKindDef>
+
+  <XIYUNTE.SpecialCharacter.SpecialCharacterDef>
+    <defName>TRK_Character_JingLingLan</defName>
+    <label>精灵兰</label>
+    <description>精灵兰是四协会的收尾人。她以死之弓执行远程狩猎与清除委托，习惯在确认目标后再一次性完成射击。</description>
+    <detailedReport>23岁，女，精灵兰，东部し协会成员。
+
+精灵兰在鼠族王国接受继承人教育，后来成为负责追踪和狩猎的收尾人。她熟悉野外路线，能从脚印、断枝和风向中判断目标的去向，也能在长时间等待后保持稳定的准心。
+
+她不喜欢无意义的交谈，对目标之外的情绪反应也十分淡漠。任务记录里很少出现多余的描述，通常只有路线、距离、箭矢数量和结果。她会把死之弓擦拭干净，补足箭袋，再前往下一个委托地点。
+
+Hana协会确认其派遣资料。精灵兰愿意为殖民地处理远距离威胁和狩猎工作；她只要求在出发前确认风向，并确保箭袋没有被遗忘。</detailedReport>
+    <arrivalGreeting>拉开弓弦，投射出箭矢，公平的将死亡带给一切所有活着的人。不过如果还没有工作分配给我的话，请让我再多休息一会儿吧。</arrivalGreeting>
+    <pawnKind>TRK_Special_JingLingLan</pawnKind>
+    <association>四协会 · 东部し协会</association>
+    <iconPath>SpecialCharacter/JingLingLan</iconPath>
+    <price>2000</price>
+    <firstName>精灵兰</firstName><nickname>精灵兰</nickname><lastName />
+    <biologicalAge>23</biologicalAge><gender>Female</gender>
+    <bodyType>Thin</bodyType><headType>RK_HeadType_Head4</headType><hair>RK_PonyA</hair>
+    <hairColor>(0.714,0.718,0.729,1.000)</hairColor>
+    <hairColorSecond>(1.000,1.000,1.000,1.000)</hairColorSecond>
+    <favoriteColor>Olive</favoriteColor>
+    <facialAnimation>
+      <head>Ratkin_Head</head><eyes>Ratkin_EyeStars</eyes><lids>Ratkin_LidPointy</lids>
+      <brows>Ratkin_Futomayu</brows><mouth>Ratkin_MouthNormal</mouth><skin>Ratkin_SkinNormal</skin>
+      <eyeColor>(0.576,0.757,0.910,1.000)</eyeColor>
+      <eyeColorSecond>(0.576,0.757,0.910,1.000)</eyeColorSecond>
+    </facialAnimation>
+    <addonVariants><li>0</li><li>0</li><li>0</li></addonVariants>
+    <xenotype>RK_XenoType_Ratkin</xenotype>
+    <endogenes>
+      <li>Skin_Melanin2</li><li>RK_Gene_SmallBody</li><li>RK_Gene_Nimble</li>
+      <li>RK_Gene_PoorEyesight</li><li>RK_Gene_FragilePain</li><li>RK_Gene_GoodGardening</li>
+      <li>Skin_SheerWhite</li><li>Beard_NoBeardOnly</li><li>RK_Gene_LargeEars</li>
+      <li>RK_Gene_ThinTail</li><li>RK_Gene_CuteFace</li><li>AptitudeStrong_Mining</li>
+      <li>AptitudeStrong_Plants</li><li>Hair_DarkBlack</li>
+    </endogenes>
+    <skills>
+      <li><skill>Shooting</skill><level>10</level><passion>Major</passion></li>
+      <li><skill>Melee</skill><level>8</level><passion>Minor</passion></li>
+      <li><skill>Construction</skill><level>4</level><passion>None</passion></li>
+      <li><skill>Mining</skill><level>4</level><passion>None</passion></li>
+      <li><skill>Cooking</skill><level>0</level><passion>None</passion></li>
+      <li><skill>Plants</skill><level>4</level><passion>None</passion></li>
+      <li><skill>Animals</skill><level>0</level><passion>None</passion></li>
+      <li><skill>Crafting</skill><level>1</level><passion>None</passion></li>
+      <li><skill>Artistic</skill><level>6</level><passion>Minor</passion></li>
+      <li><skill>Medicine</skill><level>8</level><passion>Major</passion></li>
+      <li><skill>Social</skill><level>10</level><passion>None</passion></li>
+      <li><skill>Intellectual</skill><level>3</level><passion>None</passion></li>
+    </skills>
+    <weapon>
+      <thing>Bow_of_Death</thing><stuff>Steel</stuff><count>1</count><quality>Excellent</quality><hitPoints>100</hitPoints>
+    </weapon>
+    <apparel>
+      <li><thing>si_uniform</thing><stuff>Synthread</stuff><count>1</count><quality>Excellent</quality><hitPoints>310</hitPoints><color>(0.678,0.859,0.890,1.000)</color></li>
+      <li><thing>si_quiver</thing><stuff>Synthread</stuff><count>1</count><quality>Excellent</quality><hitPoints>130</hitPoints><color>(0.678,0.859,0.890,1.000)</color></li>
+    </apparel>
+    <inventory>
+      <li><thing>RK_Food_Hardtack</thing><count>3</count><hitPoints>50</hitPoints></li>
+      <li><thing>MedicineIndustrial</thing><count>4</count><hitPoints>60</hitPoints></li>
+      <li><thing>Bow_of_Death_Arrow</thing><count>4</count><hitPoints>100</hitPoints></li>
+      <li MayRequire="fxz.myafufu"><thing>FuFu_JingLingLan</thing><count>1</count><hitPoints>300</hitPoints></li>
+    </inventory>
+  </XIYUNTE.SpecialCharacter.SpecialCharacterDef>
+</Defs>

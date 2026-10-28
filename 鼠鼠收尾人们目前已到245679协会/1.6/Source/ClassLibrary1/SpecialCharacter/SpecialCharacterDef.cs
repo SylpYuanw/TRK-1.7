@@ -12,6 +12,7 @@ namespace XIYUNTE.SpecialCharacter
         public PawnKindDef pawnKind;
         public string association;
         [MustTranslate] public string detailedReport;
+        [MustTranslate] public string arrivalGreeting;
         public string iconPath;
         public int price;
         public string firstName;

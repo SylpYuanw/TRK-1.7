@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  <!-- 箭矢:命中后挂在目标身上的层数型状态,每层提供 +14% 承伤系数(原版 IncomingDamageFactor 偏移),
-       单层不做任何自然愈合与包扎,只能通过手术"取出箭矢"清除;层数上限由弹丸侧限制为 4。 -->
+  <!-- 箭矢:每次命中保留一份独立 Hediff,每份提供 +14% 承伤系数,最多 4 份。
+       不自然愈合且不可包扎,只能通过手术"取出箭矢"清除。 -->
   <HediffDef>
     <defName>BowOfDeath_StuckArrow</defName>
+    <hediffClass>XIYUNTE.Hediff_BowOfDeathStuckArrow</hediffClass>
     <label>死之箭嵌入</label>
     <description>一支嵌入体内的死之箭。取出前会让该单位承受更多伤害。</description>
     <isBad>true</isBad>
     <tendable>false</tendable>
+    <initialSeverity>1</initialSeverity>
     <stages>
       <li>
         <statOffsets>
