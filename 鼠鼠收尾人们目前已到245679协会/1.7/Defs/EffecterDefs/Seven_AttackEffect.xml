@@ -4,10 +4,11 @@
     <defName>RK_Seven_AttackFleck</defName>
     <graphicData>
       <texPath>VFX/Seven_Weapon_AttackEffect</texPath>
+      <drawSize>1.44</drawSize>
     </graphicData>
   </FleckDef>
 
-  <!-- 贴图冲击端朝东；原版 A→B 连续角覆盖八向，沿目标方向偏移0.9格。 -->
+  <!-- 贴图冲击端朝东；原版 A→B 连续角覆盖八向，沿目标方向偏移2.0格。 -->
   <EffecterDef>
     <defName>RK_Seven_AttackEffect</defName>
     <children>
@@ -15,7 +16,7 @@
         <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
         <fleckDef>RK_Seven_AttackFleck</fleckDef>
         <burstCount>1</burstCount>
-        <scale>1.2~1.2</scale>
+        <scale>1.0~1.0</scale>
         <spawnLocType>OnSource</spawnLocType>
         <rotation>-90~-90</rotation>
       </li>
