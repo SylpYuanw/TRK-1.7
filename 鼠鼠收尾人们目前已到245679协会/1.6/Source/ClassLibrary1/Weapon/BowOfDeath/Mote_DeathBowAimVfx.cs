@@ -238,14 +238,12 @@ namespace XIYUNTE
         // 尺寸恒定:流线长度只由 Def 的 drawSize.x 决定。
         protected override float BreathScaleAmplitude => 0f;
 
-        // 流线沿画布纵向恒定的偏移格数：负值表示朝弓线下方（手持侧）移动，跟随瞄准旋转。
-        private const float LineSideOffset = -0.2f;
-
+        // 流线沿画布纵向的偏移复用几何常量，与弓头层取同一值。
         // 以武器实际绘制中心为分界，将流线长度分配为身体侧50%、射击侧50%，
-        // 再沿画布纵向偏移0.2格，使红色线段落在弓线上。
+        // 再沿画布纵向偏移，使红色线段落在弓线上。
         protected override Vector3 LocalOffsetAt(float t)
         {
-            return new Vector3(DeathBowVfxGeometry.StreakCenter(WeaponAimDistance, def.graphicData.drawSize.x), 0f, LineSideOffset);
+            return new Vector3(DeathBowVfxGeometry.StreakCenter(WeaponAimDistance, def.graphicData.drawSize.x), 0f, DeathBowVfxGeometry.LineSideOffset);
         }
 
     }
@@ -265,9 +263,11 @@ namespace XIYUNTE
         // 画布尺寸恒定，范围和局部角度由Shader分别控制。
         protected override float BreathScaleAmplitude => 0f;
 
+        // 弓头画布与流线层共用同一条弓线纵向偏移，保证两层沿弓线方向不错开；
+        // attachedDrawOffset 只负责沿瞄准方向的头部对位。
         protected override Vector3 LocalOffsetAt(float t)
         {
-            return def.mote.attachedDrawOffset + new Vector3(WeaponAimDistance - 0.4f, 0f, 0f);
+            return new Vector3(def.mote.attachedDrawOffset.x + WeaponAimDistance - 0.4f, def.mote.attachedDrawOffset.y, DeathBowVfxGeometry.LineSideOffset);
         }
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)

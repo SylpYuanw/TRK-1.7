@@ -1,25 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <Defs>
   <!-- 死之弓蓄力阶切换的浮现印迹:切换完成时由 XIYUNTE.CompEquippable_DeathBow 在装备者身上生成。
        生命周期完全走原版 Mote 机制:fadeInTime → solidTime → fadeOutTime 三段结束后自行销毁,不入存档;
@@ -73,10 +52,10 @@
         <_DeepColor>(0.065,0.002,0.009,1)</_DeepColor>
         <_FlameColor>(0.38,0.012,0.035,1)</_FlameColor>
         <_HotColor>(0.82,0.065,0.085,1)</_HotColor>
-        <_SourceU>0.52</_SourceU>
-        <_SourceV>0.3</_SourceV>
+        <_SourceU>0.5</_SourceU>
+        <_SourceV>0.4</_SourceV>
         <_FlowAngle>60</_FlowAngle>
-        <_FlowLength>0.58</_FlowLength>
+        <_FlowLength>0.5</_FlowLength>
         <_FlowWidth>0.10</_FlowWidth>
         <_RibbonWidth>0.03</_RibbonWidth>
         <_RibbonCount>4</_RibbonCount>
@@ -148,7 +127,7 @@
         <_HotColor>(0.8,0.035,0.055,1)</_HotColor>
         <_HeadU>0.79</_HeadU>
         <_HeadV>0.5</_HeadV>
-        <_FlowLength>0.42</_FlowLength>
+        <_FlowLength>0.55</_FlowLength>
         <_FlowWidth>0.2</_FlowWidth>
         <_InwardCurve>0.025</_InwardCurve>
         <_GroupSeparation>0</_GroupSeparation>

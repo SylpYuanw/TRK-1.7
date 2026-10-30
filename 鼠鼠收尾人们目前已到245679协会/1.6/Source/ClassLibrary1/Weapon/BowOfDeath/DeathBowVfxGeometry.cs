@@ -9,6 +9,10 @@ namespace XIYUNTE
         // 即有效内容整体偏画布左侧;画布中心必须按该差值的反方向前移,红色线段的中点才会落在弓上。
         private const float StreakContentCenterU = 0.3125f;
 
+        // 全部瞄准图层相对弓身绘制中心沿画布纵轴的共用偏移(格),负值指向弓线下方的持握侧。
+        // 流线与弓头层必须取同一值,否则两层会沿弓线方向错开。
+        public const float LineSideOffset = -0.2f;
+
         // 流线有效线段以弓身绘制中心为界，后侧与前侧各占50%。
         public static float StreakCenter(float weaponAimDistance, float length)
         {

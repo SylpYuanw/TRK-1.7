@@ -7,7 +7,7 @@ namespace XIYUNTE
     // 子类决定三件事:透明度上限与呼吸节奏、朝向与位移的取法、以及是否做尺寸呼吸。
     // 时间轴:按各 MoteDef 的 fadeInTime 淡入 → 持续 → 射击完成或瞄准被中断后停止维护,
     // 由 needsMaintenance/fadeOutUnmaintained 按 fadeOutTime 淡出并自毁(1 秒)。
-    // 透明度最终值 = 原版淡入淡出曲线 × 上限 Opacity × 反复呼吸曲线 Pulse(Graphic_Mote.DrawMote 会把它乘进顶点色)。
+    // 透明度最终值 = 原版淡入淡出曲线 × 上限 Opacity × Pulse；自定义图层通过实例PropertyBlock传递。
     public abstract class Mote_DeathBowAimVfxBase : MoteAttached
     {
         protected const float BreathAmplitude = 0.05f;
@@ -15,6 +15,8 @@ namespace XIYUNTE
 
         // 每个实例一个随机相位:多把弓同时蓄力时不会整齐划一地一起呼吸。
         private float phase;
+
+        public float EffectSeed => phase;
 
         // 透明度上限(统一压暗用)。
         protected abstract float Opacity { get; }
@@ -42,7 +44,7 @@ namespace XIYUNTE
 
         public override float Alpha => base.Alpha * Opacity * Pulse;
 
-        // 呼吸曲线:在 PulseMinAlpha 与 1 之间来回,周期由子类给定 —— 主体层每 1.7 秒一次"淡出再回来"。
+        // 呼吸曲线在PulseMinAlpha与1之间变化；最低值为1时不叠加整层呼吸。
         private float Pulse
         {
             get
@@ -113,26 +115,35 @@ namespace XIYUNTE
     }
 
     // 沿瞄准方向定向的层:每 tick 从预热状态重取瞄准角,朝向取"瞄准角 - 90",与武器绘制、流线层同一套口径,
-    // 因此贴图 +X 轴始终指向瞄准方向;位移把局部偏移按同一个"瞄准角 - 90"旋转:
-    // 局部 +X 为瞄准方向(角色正前方),局部 +Z 为瞄准方向的左侧,两者与贴图在屏幕上的纵横方向一致。
+    // 贴图 +X 轴指向瞄准方向；左半平面先镜像局部纵轴，再对画布和偏移使用同一旋转。
+    // 局部 +X 为角色正前方；东西两向的局部 +Z 均对应画面上方。
     // MoteAttached 会把 Def 的 attachedDrawOffset 按世界坐标预先加进宿主位置(见 Verse/MoteAttached.cs),
     // 这里扣掉原值再加旋转后的值,等价于把该字段解释为随瞄准方向一起旋转的局部偏移。
     public abstract class Mote_DeathBowAimAlignedVfx : Mote_DeathBowAimVfxBase
     {
         // 当前瞄准角(AngleFlat 口径);预热未建立时保留上一次取值。
         private float aimAngle;
+        private bool hasAimAngle;
+        private Vector3 weaponDrawOffset;
+        protected float WeaponAimDistance { get; private set; }
+        protected virtual bool FollowWeaponDrawOffset => false;
+        protected float AimAngle => aimAngle;
+
+
+        protected virtual bool MirrorWithAim => true;
 
         protected override float RotationAt(float t)
         {
-            return aimAngle - 90f + SwayRotationAt(t);
+            return DeathBowVfxGeometry.Rotation(aimAngle) + SwayRotationAt(t);
         }
 
         protected override Vector3 OffsetAt(float t)
         {
-            return LocalOffsetAt(t).RotatedBy(aimAngle - 90f) - def.mote.attachedDrawOffset;
+            return DeathBowVfxGeometry.LocalToWorld(LocalOffsetAt(t), aimAngle) - def.mote.attachedDrawOffset
+                + (FollowWeaponDrawOffset ? weaponDrawOffset : Vector3.zero);
         }
 
-        // 子类的局部偏移(单位:格)。默认取 Def 自身的 attachedDrawOffset,即该字段只提供大小,旋转由本类完成。
+        // 子类的局部偏移(单位:格)。默认取 Def 自身的 attachedDrawOffset,即该字段提供局部偏移，镜像和旋转由本类完成。
         protected virtual Vector3 LocalOffsetAt(float t)
         {
             return def.mote.attachedDrawOffset;
@@ -148,12 +159,15 @@ namespace XIYUNTE
         {
             base.SpawnSetup(map, respawningAfterLoad);
             UpdateAimAngle();
+            exactRotation = RotationAt(AgeSecs);
+            linearScale.z *= MirrorWithAim ? DeathBowVfxGeometry.MirrorSign(aimAngle) : 1f;
         }
 
         protected override void TimeInterval(float deltaTime)
         {
             UpdateAimAngle();
             base.TimeInterval(deltaTime);
+            linearScale.z = Mathf.Abs(linearScale.z) * (MirrorWithAim ? DeathBowVfxGeometry.MirrorSign(aimAngle) : 1f);
         }
 
         private void UpdateAimAngle()
@@ -162,40 +176,47 @@ namespace XIYUNTE
             if (TryGetAimAngle(out angle))
             {
                 aimAngle = angle;
-                return;
+                hasAimAngle = true;
             }
-            // 预热状态取不到时(刚生成、瞄准已结束进入淡出)退回角色当前朝向,方向不跳变。
+            // 首次生成尚无有效瞄准时取角色朝向；进入淡出后保留最后一个有效瞄准角。
             Pawn pawn = link1.Target.Thing as Pawn;
-            if (pawn != null)
+            if (!hasAimAngle && pawn != null)
             {
                 aimAngle = pawn.Rotation.AsAngle;
+            }
+            // 淡出后保留最后一次有效武器偏移，避免卸下武器时特效跳回原点。
+            if (FollowWeaponDrawOffset && pawn?.equipment?.Primary is Thing_DeathBow bow)
+            {
+                weaponDrawOffset = DeathBowAimDrawOffsetPatch.OffsetFor(bow.GetComp<CompEquippable_DeathBow>().Props, aimAngle);
+                WeaponAimDistance = (0.4f + bow.def.equippedDistanceOffset)
+                    * pawn.ageTracker.CurLifeStage.equipmentDrawDistanceFactor;
             }
         }
     }
 
-    // 主体层:蓄力期间反复淡出(最低 8%,周期 1.7 秒),透明度上限 70%,淡出节点就是瞄准结束的那一刻。
-    // 朝向与位移跟随瞄准方向:Def 的 attachedDrawOffset 决定烟雾场沿瞄准方向的位置,再叠加一层局部的轻微摇曳。
+    // 身体画布保持直立；水平瞄准分量控制左右镜像和倾斜，脚源高度恒定。
+    // 局部消散由Shader节点执行，Mote仅控制瞄准开始和结束时的淡入淡出。
     public class Mote_DeathBowAimVfx : Mote_DeathBowAimAlignedVfx
     {
-        private const float SwayAmplitudeX = 0.06f;
-        private const float SwayAmplitudeZ = 0.04f;
-        private const float SwaySpeedX = 0.72f;
-        private const float SwaySpeedZ = 0.47f;
-        private const float SwayRotationDegrees = 4f;
-
         protected override float Opacity => 0.7f;
-        protected override float PulseMinAlpha => 0.08f;
+        protected override float PulseMinAlpha => 1f;
         protected override float PulsePeriodSeconds => 1.7f;
+        protected override float BreathScaleAmplitude => 0f;
+        protected override bool MirrorWithAim => false;
+        public float BodyAimSide => DeathBowVfxGeometry.BodySide(AimAngle);
 
-        protected override float SwayRotationAt(float t)
+        protected override float RotationAt(float t) => 0f;
+
+        protected override Vector3 OffsetAt(float t)
         {
-            return SwayRotationDegrees * Mathf.Sin(t * SwaySpeedX * 0.8f);
+            return DeathBowVfxGeometry.BodyLocalToWorld(def.mote.attachedDrawOffset, AimAngle)
+                - def.mote.attachedDrawOffset;
         }
 
-        protected override Vector3 LocalOffsetAt(float t)
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
-            return def.mote.attachedDrawOffset
-                + new Vector3(SwayAmplitudeX * Mathf.Sin(t * SwaySpeedX), 0f, SwayAmplitudeZ * Mathf.Sin(t * SwaySpeedZ + 1.7f));
+            base.SpawnSetup(map, respawningAfterLoad);
+            DeathBowVfxTextures.Apply(Graphic.MatSingle, def.graphicData.drawSize, def.shortHash);
         }
     }
 
@@ -204,8 +225,9 @@ namespace XIYUNTE
     // 与烟雾层不同,它不做摇曳旋转与尺寸呼吸,瞄准期间稳定显示,淡入/淡出各 1 秒。
     public class Mote_DeathBowAimStreakVfx : Mote_DeathBowAimAlignedVfx
     {
-        // 武器绘制时的前移量:独立调参常量,不决定武器本体位置,武器 Def 的 equippedDistanceOffset 会叠加。
-        private const float WeaponDrawDistance = -1f;
+        // 原版流线材质保留原网格绕序；两层自定义Shader以Cull Off支持实例镜像。
+        protected override bool MirrorWithAim => false;
+        protected override bool FollowWeaponDrawOffset => true;
 
         protected override float Opacity => 0.8f;
 
@@ -216,69 +238,72 @@ namespace XIYUNTE
         // 尺寸恒定:流线长度只由 Def 的 drawSize.x 决定。
         protected override float BreathScaleAmplitude => 0f;
 
-        // 位移 = 沿瞄准方向前移,与弓的落点一致。
+        // 流线沿画布纵向的偏移复用几何常量，与弓头层取同一值。
+        // 以武器实际绘制中心为分界，将流线长度分配为身体侧50%、射击侧50%，
+        // 再沿画布纵向偏移，使红色线段落在弓线上。
         protected override Vector3 LocalOffsetAt(float t)
         {
-            return new Vector3(WeaponDrawDistance + EquippedDistanceOffset, 0f, 0f);
+            return new Vector3(DeathBowVfxGeometry.StreakCenter(WeaponAimDistance, def.graphicData.drawSize.x), 0f, DeathBowVfxGeometry.LineSideOffset);
         }
 
-        // 武器 Def 上的额外持握距离(本武器未配置时为 0),与武器绘制同源,避免流线与弓错位。
-        private float EquippedDistanceOffset
-        {
-            get
-            {
-                Pawn pawn = link1.Target.Thing as Pawn;
-                Thing weapon = pawn?.equipment?.Primary;
-                return weapon == null ? 0f : weapon.def.equippedDistanceOffset;
-            }
-        }
     }
 
-    // 扩散层:贴图是四条红色能量条(按朝右射击绘制:头在右、尾在左),Shader 负责把整图沿画布 -X 逐份向后推移,
-    // 本类只决定朝向与位置:朝向 = 瞄准角 - 90,位置 = Def 的局部偏移按瞄准角旋转,
-    // 因此朝正上方瞄准时整块画布落在角色正下方,朝右上方瞄准时落在左下方。
+    // 弓头风雾层：Shader以风形RGB作遮罩，无缝噪声提供滚动形变与消散。
+    // 本类绑定噪声贴图和画布纵横比；朝向取瞄准角 - 90，局部偏移按同一角度旋转，
+    // 左半平面同步镜像局部纵轴；身体层单独保持画面竖直方向。
     // 与流线层相同:不做尺寸呼吸与反复淡出,瞄准期间稳定显示,淡入/淡出各 1 秒。
     public class Mote_DeathBowAimChargeVfx : Mote_DeathBowAimAlignedVfx
     {
-        // 开始态贴图路径(相对 Textures,不含扩展名);结束态贴图是 Def 的 texPath。
-        private const string StartTexPath = "VFX/Bow_of_Death_Aim_Charge_Start_Vfx";
-
+        protected override bool FollowWeaponDrawOffset => true;
+        // 噪声路径相对MOD共用Textures目录，不含扩展名；主风形图由Def的texPath加载。
         protected override float Opacity => 0.9f;
         protected override float PulseMinAlpha => 1f;
         protected override float PulsePeriodSeconds => 1f;
 
-        // 尺寸恒定:扩散只由 Shader 的平移完成,不做任何缩放,避免贴图被压缩。
+        // 画布尺寸恒定，范围和局部角度由Shader分别控制。
         protected override float BreathScaleAmplitude => 0f;
+
+        // 弓头画布与流线层共用同一条弓线纵向偏移，保证两层沿弓线方向不错开；
+        // attachedDrawOffset 只负责沿瞄准方向的头部对位。
+        protected override Vector3 LocalOffsetAt(float t)
+        {
+            return new Vector3(def.mote.attachedDrawOffset.x + WeaponAimDistance - 0.4f, def.mote.attachedDrawOffset.y, DeathBowVfxGeometry.LineSideOffset);
+        }
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
-            ApplyStartTexture();
+            DeathBowVfxTextures.Apply(Graphic.MatSingle, def.graphicData.drawSize, def.shortHash);
         }
 
-        // Mote 的材质由 MaterialPool 按 Def 与参数生成,只带 Def 的主贴图;开始态贴图在这里补进同一个材质。
-        // 该材质只服务本 Def 的实例,两张贴图都固定不变,因此不必每个实例各建一份材质。
-        private void ApplyStartTexture()
+    }
+
+    internal static class DeathBowVfxTextures
+    {
+        private const string NoiseTexPath = "VFX/DeathBow_ChargeNoise";
+
+        // MaterialPool提供主风形图；共享材质补绑固定噪声纹理，不逐实例创建材质。
+        public static void Apply(Material material, Vector2 drawSize, int errorId)
         {
-            Material material = Graphic?.MatSingle;
             if (material == null)
             {
-                Log.ErrorOnce("Bow of death charge vfx material is missing.", def.shortHash ^ 0x5B0A);
+                Log.ErrorOnce("Bow of death vfx material is missing.", errorId ^ 0x5B0A);
                 return;
             }
-            Texture2D startTexture = ContentFinder<Texture2D>.Get(StartTexPath);
-            if (startTexture == null)
+            // 以画布高度为距离单位，纵横比用于保持非正方形画布中的实际角度。
+            material.SetFloat("_CanvasAspect", drawSize.x / drawSize.y);
+            Texture2D noiseTexture = ContentFinder<Texture2D>.Get(NoiseTexPath);
+            if (noiseTexture == null)
             {
-                Log.ErrorOnce("Bow of death charge vfx start texture is missing: " + StartTexPath, def.shortHash ^ 0x5B0B);
+                Log.ErrorOnce("Bow of death vfx noise texture is missing: " + NoiseTexPath, errorId ^ 0x5B0B);
                 return;
             }
-            // 未绑定过时 GetTexture 返回的是 Shader 默认贴图(不是 null),必须按"是否已是这张贴图"判断,
-            // 否则第一帧就会直接返回,开始态贴图永远绑不上。
-            if (material.GetTexture("_StartTex") == startTexture)
+            // Shader默认纹理非null，按目标纹理引用判断绑定状态。
+            if (material.GetTexture("_StartTex") == noiseTexture)
             {
                 return;
             }
-            material.SetTexture("_StartTex", startTexture);
+            material.SetTexture("_StartTex", noiseTexture);
         }
     }
 }

@@ -18,23 +18,30 @@ namespace XIYUNTE
             }
 
             Properties_DeathBow props = bow.GetComp<CompEquippable_DeathBow>().Props;
+            drawLoc += OffsetFor(props, aimAngle);
+        }
+
+        // 武器与附着在弓上的蓄力特效共用四向世界偏移。
+        public static Vector3 OffsetFor(Properties_DeathBow props, float aimAngle)
+        {
             Rot4 direction = Rot4.FromAngleFlat(aimAngle);
             if (direction == Rot4.East)
             {
-                drawLoc += props.aimDrawOffsetEast;
+                return props.aimDrawOffsetEast;
             }
             else if (direction == Rot4.West)
             {
-                drawLoc += props.aimDrawOffsetWest;
+                return props.aimDrawOffsetWest;
             }
             else if (direction == Rot4.North)
             {
-                drawLoc += props.aimDrawOffsetNorth;
+                return props.aimDrawOffsetNorth;
             }
             else if (direction == Rot4.South)
             {
-                drawLoc += props.aimDrawOffsetSouth;
+                return props.aimDrawOffsetSouth;
             }
+            return Vector3.zero;
         }
     }
 }

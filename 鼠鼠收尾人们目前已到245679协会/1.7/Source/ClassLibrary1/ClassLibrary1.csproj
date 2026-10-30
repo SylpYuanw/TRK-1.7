@@ -12,7 +12,7 @@
     <OutputPath>../../Assemblies/</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
-    <RimWorldDir Condition="'$(RimWorldDir)' == ''">D:/Steam/steamapps/common/RimWorld</RimWorldDir>
+    <RimWorldDir Condition="'$(RimWorldDir)' == ''">C:/Users/Administrator/Desktop/天翼种/本机源码/rimworlddll</RimWorldDir>
     <RimUnityDir Condition="'$(RimUnityDir)' == ''">D:/Steam/steamapps/workshop/content/294100/3819570122</RimUnityDir>
     <HarmonyPath Condition="'$(HarmonyPath)' == ''">D:/Steam/steamapps/workshop/content/294100/2009463077/1.7/Assemblies/0Harmony.dll</HarmonyPath>
     <RatkinAssemblyPath Condition="'$(RatkinAssemblyPath)' == ''">D:/Steam/steamapps/workshop/content/294100/1578693166/1.6/Assemblies/SYS.dll</RatkinAssemblyPath>
