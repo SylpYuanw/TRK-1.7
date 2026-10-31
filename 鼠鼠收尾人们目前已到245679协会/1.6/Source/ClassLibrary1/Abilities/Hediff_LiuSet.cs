@@ -172,6 +172,9 @@ namespace XIYUNTE
     // 只在「该 Pawn 被选中」时绘制，不常驻，避免满屏特效。
     // 用绝对值方形绘制(横竖斜同格数)，边长随成员数增长：1 人、2 人、3 人各不同。
     // 借用每帧渲染 Pawn 的时机(PawnRenderer.RenderPawnAt)，并做一次/帧去重。
+    // StaticConstructorOnStartup：LineMat 在静态构造里取 MaterialPool 与贴图，必须在主线程完成。
+    // 1.7 的 Pawn 预绘制走 Waylith 并行 Job，渲染线程首次触发 cctor 会报跨线程加载资源。
+    [StaticConstructorOnStartup]
     [HarmonyPatch(typeof(PawnRenderer), nameof(PawnRenderer.RenderPawnAt))]
     internal static class Patch_PawnRenderer_LiuAuraOverlay
     {

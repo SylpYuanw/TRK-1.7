@@ -416,6 +416,11 @@ namespace XIYUNTE
         }
     }
 
+    // 护盾泡渲染节点：仿原版/Flugel Defense_Shield，按能量>0 才绘制深绿色半透明泡。
+    // StaticConstructorOnStartup：ShieldMat 在静态构造里取 MaterialPool 与贴图，必须在主线程完成。
+    // 1.7 的 Pawn 预绘制走 Waylith 并行 Job，若等到首次 AppendDrawRequests 才触发 cctor，
+    // 会在渲染工作线程里加载资源，触发 "Tried to get a resource from a different thread"。
+    [StaticConstructorOnStartup]
     public class PawnRenderNodeWorker_DeliveryBoxShield : PawnRenderNodeWorker
     {
         private static readonly Color ShieldBaseColor = new Color(0.0f, 0.55f, 0.25f, 0.82f);   // 深绿
