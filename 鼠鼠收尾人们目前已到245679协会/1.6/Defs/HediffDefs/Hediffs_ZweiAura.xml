@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <!-- 光环来源：技能施放后挂在穿戴者身上，持续时间由技能 Ability_Duration 传导(500 秒 = 12 小时)。
        光环每 30 tick 扫描一次，为 10 格内同阵营人形单位(含自身)发放 zwei_AuraBuff。 -->
   <HediffDef>
     <defName>zwei_AuraActive</defName>
-    <label>二协会光环-开启中</label>
-    <description>二协会套装光环的开启状态。\n剩余时间结束时技能效果关闭，光环随之消失。\n开启期间：10 格内同阵营成员（含自身）获得承伤减免。</description>
+    <label>Zwei Association Aura - Active</label>
+    <description>Active state of the Zwei Association set aura.\nWhen the remaining time ends, the ability's effect ends and the aura disappears.\nWhile active: members of the same faction within 10 cells (including yourself) take reduced damage.</description>
     <hediffClass>HediffWithComps</hediffClass>
     <defaultLabelColor>(250,210,93)</defaultLabelColor>
     <isBad>false</isBad>
@@ -38,8 +38,8 @@
        连线沿用原版 HediffCompProperties_Link；缺 Ideology 时回落核心连线贴图。 -->
   <HediffDef>
     <defName>zwei_AuraBuff</defName>
-    <label>二协会-承伤减免</label>
-    <description>来自二协会套装光环的承伤减免：每次受击伤害 ×90%。\n多个来源可叠加，同一目标最多 3 层。</description>
+    <label>Zwei Association - Damage Reduction</label>
+    <description>Damage reduction from the Zwei Association set aura: each hit deals ×90% damage.\nMultiple sources stack, up to 3 stacks per target.</description>
     <hediffClass>XIYUNTE.Hediff_LiuAuraBuff</hediffClass>
     <defaultLabelColor>(250,210,93)</defaultLabelColor>
     <isBad>false</isBad>

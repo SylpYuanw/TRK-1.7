@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <!-- 二协会套装光环技能：穿齐两件(zweiSet 达到 2/2)时由 XIYUNTE.Comp_SetPiece 授予。
        缺件时按钮隐藏、技能实例保留，冷却不会被换装重置。
        技能只作用于自身，通过原版 CompAbilityEffect_GiveHediff 挂载 zwei_AuraActive。 -->
   <AbilityDef>
     <defName>zwei_Aura</defName>
-    <label>人民卫士</label>
-    <description>开启人民卫士：10 格内的友军获得承伤 90% 的增益，最多叠加 3 层，持续 12 小时。\n冷却 36 小时，自开启时开始计算。</description>
+    <label>Guardian</label>
+    <description>Activates Guardian: allies within 10 cells take only 90% damage, stacking up to 3 times, for 12 hours.\nCooldown 36 hours, starting when activated.</description>
     <iconPath>Ability/Zwei_Clothes_Ability</iconPath>
     <targetRequired>false</targetRequired>
     <hostile>false</hostile>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <!-- 突破工具技能：
        - 6 格内选取一个敌方 Pawn，冲刺到其正前方，落地后造成 47.5 钝击(命中躯干)
@@ -8,8 +8,8 @@
          切走形态或卸下武器时移除，因此并非常驻技能，也不需要在武器 Gizmo 上注入。 -->
   <AbilityDef>
     <defName>RK_BreakthroughTool</defName>
-    <label>突破工具-肘击</label>
-    <description>冲刺至目标正前方，使用突破工具蓄力肘击对方躯干，造成47.5点钝击伤害并击退5格。\n撞到墙壁时提前停止，并造成额外伤害。</description>
+    <label>Breakthrough Tool - Charge</label>
+    <description>Rush to the cell directly in front of the target and slam your breakthrough tool into their torso, dealing 48 blunt damage and knocking them back 5 cells.\nThe charge stops early if it hits a wall, dealing extra damage.</description>
     <abilityClass>XIYUNTE.Ability_BreakthroughTool</abilityClass>
     <iconPath>Ability/Breakthrough_Tool</iconPath>
     <targetRequired>true</targetRequired>
@@ -27,7 +27,7 @@
     </verbProperties>
     <comps>
       <li Class="XIYUNTE.CompProperties_BreakthroughTool">
-        <damage>47.5</damage>
+        <damage>48</damage>
         <knockbackDistance>5</knockbackDistance>
         <wallExtraDamage>20</wallExtraDamage>
         <dashFlyerDef>RK_BreakthroughFlyer</dashFlyerDef>
@@ -52,7 +52,7 @@
   <ThingDef ParentName="PawnFlyerBase">
     <defName>RK_BreakthroughFlyer</defName>
     <thingClass>XIYUNTE.PawnFlyer_Breakthrough</thingClass>
-    <label>突破工具-肘击冲刺</label>
+    <label>Breakthrough Tool - Sprint</label>
     <pawnFlyer Class="XIYUNTE.PawnFlyerProperties_Breakthrough">
       <workerClass>XIYUNTE.PawnFlyerWorker_Breakthrough</workerClass>
       <flightSpeed>10</flightSpeed>
@@ -78,7 +78,7 @@
   <ThingDef ParentName="PawnFlyerBase">
     <defName>RK_BreakthroughKnockbackFlyer</defName>
     <thingClass>XIYUNTE.PawnFlyer_Breakthrough</thingClass>
-    <label>突破工具-被肘击击退飞行中</label>
+    <label>Breakthrough Tool - Knocked Back</label>
     <pawnFlyer Class="XIYUNTE.PawnFlyerProperties_Breakthrough">
       <workerClass>XIYUNTE.PawnFlyerWorker_Breakthrough</workerClass>
       <flightSpeed>8</flightSpeed>

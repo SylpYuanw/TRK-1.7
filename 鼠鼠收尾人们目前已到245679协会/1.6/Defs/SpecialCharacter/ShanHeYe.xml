@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <PawnKindDef ParentName="RKBasePawnKind">
     <defName>TRK_Special_ShanHeYe</defName>
-    <label>山荷叶</label>
+    <label>Diphylleia grayi</label>
     <defaultFactionType>RK_PlayerFaction</defaultFactionType>
     <fixedGender>Female</fixedGender>
     <minGenerationAge>31</minGenerationAge>
@@ -28,21 +28,15 @@
 
   <XIYUNTE.SpecialCharacter.SpecialCharacterDef>
     <defName>TRK_Character_ShanHeYe</defName>
-    <label>山荷叶</label>
-    <description>山荷叶是南部Zwei协会的收尾人，曾在鼠族王国担任骑士。她喜欢直截了当的近身交锋，也习惯站在委托人与危险之间；沉稳的脾气和坚韧的体格让她成为可靠的护卫。</description>
-    <detailedReport>31岁，女，山荷叶，南部Zwei协会成员。
-
-山荷叶在普通的鼠族家庭长大，年轻时加入王国骑士团。她最早记住的训令不是怎样挥剑，而是怎样在队伍撤退时守住最后一段道路。多年的护卫任务让她学会了观察人群，也让她习惯先确认身后的人已经安全，再考虑自己还能站多久。
-
-离开骑士团后，她加入了Zwei协会。面对威胁，她更愿意用近身交锋迅速结束冲突；面对委托人，她却很少提高声音。休息时，她会找一处能看见出入口的位置坐下，直到同行的人回来，才慢慢卸下厚重的大衣。
-
-Hana协会确认其派遣资料。山荷叶愿意承担殖民地的巡逻、护卫和建设工作。她对新驻地没有太多要求，只希望每次说出“我们回去吧”的时候，身边的人都还在。</detailedReport>
-    <arrivalGreeting>之后就是长期合作的客户啦，不过开工前不介意我先来一根吧，额，如果禁烟的话就算了。</arrivalGreeting>
+    <label>Diphylleia grayi</label>
+    <description>Diphylleia grayi is a Fixer of the Southern Zwei Association. She once served as a knight of the Ratkin kingdom, defending it against all evil; her solid technique and tough physique make her a reliable guard.</description>
+    <detailedReport>31 years old, female, Diphylleia grayi, member of the Southern Zwei Association.\n\nDiphylleia grayi grew up in an ordinary Ratkin family and joined the kingdom's knights when young. The first order she remembered was not how to swing a sword, but how to hold the last stretch of road while the squad retreated. Years of guard duty taught her to read a crowd, and to make sure the people behind her were safe before considering how long she could still stand.\n\nAfter leaving the knights she joined the Zwei Association. Facing a threat, she prefers to defend rather than strike first; facing a client, she rarely raises her voice. At rest she finds a seat with a view of the entrances and waits until her companions return before slowly taking off her heavy coat.\n\nThe 하나 Association has verified her dispatch records. Diphylleia grayi is willing to take on the colony's patrol, guard and construction work. She has few demands for a new posting—only that no one be missing.</detailedReport>
+    <arrivalGreeting>We'll be long-term clients from now on, then. But before we start, would you mind if I have one? Ah—if smoking is banned, never mind.</arrivalGreeting>
     <pawnKind>TRK_Special_ShanHeYe</pawnKind>
-    <association>二协会 · 南部Zwei协会</association>
+    <association>Zwei Association · Southern Zwei Association</association>
     <iconPath>SpecialCharacter/ShanHeYe</iconPath>
     <price>2000</price>
-    <firstName>山荷叶</firstName><nickname>山荷叶</nickname><lastName />
+    <firstName>Diphylleia grayi</firstName><nickname>Diphylleia grayi</nickname><lastName />
     <biologicalAge>31</biologicalAge><gender>Female</gender>
     <bodyType>Thin</bodyType><headType>RK_HeadType_Head4</headType><hair>RK_LongA</hair>
     <hairColor>(0.824,0.737,0.541,1.000)</hairColor>

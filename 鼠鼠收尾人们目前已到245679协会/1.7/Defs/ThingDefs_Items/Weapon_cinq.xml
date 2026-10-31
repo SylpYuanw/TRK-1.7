@@ -4,8 +4,8 @@
 
   <ThingDef ParentName="RK_MeleeWeapon">
 		<defName>cinq</defName>
-		<label>南部Cinq协会迅捷剑</label>
-		<description>南部Cinq协会收尾人的主要业务是代理决斗。发起决斗申请时会讲手套扔向被决斗者。决斗用于解决争端，并非总是需要以命相搏。</description>
+		<label>Southern Cinq Association Rapier</label>
+		<description>The main business of Southern Cinq Association Fixers is duel representation. When issuing a challenge, they throw a glove at their opponent. Duels settle disputes, and do not always require fighting to the death.</description>
 		<graphicData>
 			<texPath>Weapon/cinqA</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -34,7 +34,7 @@
 		<costStuffCount>55</costStuffCount>
 		<tools>
 			<li>
-				<label>剑柄</label>
+				<label>Hilt</label>
 				<capacities>
 					<li>Blunt</li>
 				</capacities>
@@ -43,7 +43,7 @@
 				<cooldownTime>1.8</cooldownTime>
 			</li>
 			<li>
-				<label>剑尖</label>
+				<label>Tip</label>
 				<capacities>
 					<li>Stab</li>
 				</capacities>

@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
     <defName>RK_DeliveryBox</defName>
     <thingClass>XIYUNTE.Thing_DeliveryBox</thingClass>
     <!-- 使用原版近战武器父定义提供材料、品质和基础武器属性；SYS 手持、背负与收纳接口由本定义显式配置。 -->
-    <label>派送箱</label>
-    <description>Девять协会北部收尾人使用的派送箱。\n派送箱可以进行增强输出功率以及转换模式。启动后派送箱会持续释放能量协助战斗，还可以增强输出功率或转换模式。\n不过增强输出功率也不一定对性命有保障。请别错过最后的期限。\n[最低福利休息模式运作。能量补给暂停。注意。此措施是暂时的。建议迅速派送。]\n派送箱内有搭载AI助理“波鲁（鼠）德尼察”进行导航来达到快速配送的目的。\n内置重力奇点，即使放入许多物品也不会感到有明显的重量增加。\n不过通常来讲，这些箱子大多都是前辈的遗物\n[阶段三。警告。任务超时。进入派送加速最终阶段。进一步的时间延误将无法保障您的安全。]\n ”放我一马我保证一定会好好完成派送的！吱！“</description>
+    <label>Delivery Box</label>
+    <description>A Delivery Box used by Northern Девять Association Fixers.\nThe box can boost its output power and switch modes. Once activated, it continuously releases energy to assist in combat, and can further increase output or change modes.\nBoosting output does not necessarily guarantee your life. Do not miss the final deadline.\n[Minimum Welfare Rest Mode active. Energy supply suspended. Note. This measure is temporary. Deliver promptly.]\nThe box carries an AI assistant, "Poru(rat)dnitsa", who navigates to ensure fast delivery.\nA spatial singularity is built in, so even many items add no noticeable weight.\nUsually, though, these boxes are relics of those who came before.\n[Stage III. Warning. Delivery overdue. Entering final acceleration stage. Further delay cannot guarantee your safety.]\n"Spare me and I swear I'll finish the delivery properly! Squeak!"</description>
     <!-- 外观组件 使用 CutoutComplex 着色器 用于带透明边缘或复杂轮廓的贴图 -->
     <graphicData>
       <texPath>Weapon/Box_Core</texPath>
@@ -36,7 +36,7 @@
     <!-- 静态 tools 使用箱体形态数据:用于通过原版"equipment has no verbs or tools"配置检查,并让武器卡显示默认形态的近战 DPS/穿透;实际攻击动词由运行时 IVerbOwner 按当前形态提供。 -->
     <tools>
       <li>
-        <label>箱角</label>
+        <label>Box Corner</label>
         <capacities>
           <li>Blunt</li>
         </capacities>
@@ -46,7 +46,7 @@
         <soundMeleeHit>MeleeHit_ZeusHammer</soundMeleeHit>
       </li>
       <li>
-        <label>箱面</label>
+        <label>Box Face</label>
         <capacities>
           <li>Blunt</li>
         </capacities>
@@ -79,8 +79,8 @@
         <modes>
           <li>
             <!-- 基础形态:钝器伤害,宙斯锤命中音效;装备者属性见本形态 equippedStatOffsets(偏移)、equippedStatFactors(倍率)与 massCapacityBonus(负重)。 -->
-            <label>派送箱</label>
-            <description>可以切换多种战斗形态的模块化派送箱。\nДевять协会北部收尾人使用的派送箱。\n派送箱可以进行增强输出功率以及转换模式。启动后派送箱会持续释放能量协助战斗，还可以增强输出功率或转换模式。\n不过增强输出功率也不一定对性命有保障。请别错过最后的期限。\n[最低福利休息模式运作。能量补给暂停。注意。此措施是暂时的。建议迅速派送。]\n派送箱内有搭载AI助理“波鲁（鼠）德尼察”进行导航来达到快速配送的目的。\n内置重力奇点，即使放入许多物品也不会感到有明显的重量增加。\n不过通常来讲，这些箱子大多都是前辈的遗物\n[阶段三。警告。任务超时。进入派送加速最终阶段。进一步的时间延误将无法保障您的安全。]\n ”放我一马我保证一定会好好完成派送的！吱！“</description>
+            <label>Delivery Box</label>
+            <description>A modular Delivery Box that can switch between multiple combat forms.\nA Delivery Box used by Northern Девять Association Fixers.\nThe box can boost its output power and switch modes. Once activated, it continuously releases energy to assist in combat, and can further increase output or change modes.\nBoosting output does not necessarily guarantee your life. Do not miss the final deadline.\n[Minimum Welfare Rest Mode active. Energy supply suspended. Note. This measure is temporary. Deliver promptly.]\nThe box carries an AI assistant, "Poru(rat)dnitsa", who navigates to ensure fast delivery.\nA spatial singularity is built in, so even many items add no noticeable weight.\nUsually, though, these boxes are relics of those who came before.\n[Stage III. Warning. Delivery overdue. Entering final acceleration stage. Further delay cannot guarantee your safety.]\n"Spare me and I swear I'll finish the delivery properly! Squeak!"</description>
             <texPath>Weapon/Box_Core</texPath>
             <drawSize>1.0</drawSize>
 
@@ -91,7 +91,7 @@
             
             <tools>
               <li>
-                <label>箱角</label>
+                <label>Box Corner</label>
                 <capacities>
                   <li>Blunt</li>
                 </capacities>
@@ -101,7 +101,7 @@
                 <soundMeleeHit>MeleeHit_ZeusHammer</soundMeleeHit>
               </li>
               <li>
-                <label>箱面</label>
+                <label>Box Face</label>
                 <capacities>
                   <li>Blunt</li>
                 </capacities>
@@ -123,8 +123,8 @@
           </li>
           <li>
             <!-- 与箱体模式不同:利器伤害,等离子剑命中音效。 -->
-            <label>崩坏刃</label>
-            <description>[已确认提高功率的请求。]</description>
+            <label>Disintegration Blade</label>
+            <description>[Request to increase power confirmed.]</description>
             <texPath>Weapon/Box_Blade</texPath>
             <drawSize>1.0</drawSize>
             
@@ -136,7 +136,7 @@
 
             <tools>
               <li>
-                <label>崩坏刃斩击</label>
+                <label>Disintegration Blade Slash</label>
                 <capacities>
                   <li>Cut</li>
                 </capacities>
@@ -146,7 +146,7 @@
                 <soundMeleeHit>MeleeHit_PlasmaSword</soundMeleeHit>
               </li>
               <li>
-                <label>箱面</label>
+                <label>Box Face</label>
                 <capacities>
                   <li>Blunt</li>
                 </capacities>
@@ -159,8 +159,8 @@
           </li>
           <li>
             <!-- 与箱体模式不同:多功能钝器,保留较快的攻击冷却。 -->
-            <label>多功能工具</label>
-            <description>[检测到敌对势力。波鲁德尼察，强力派送模式启动。]\n形态特性:每次挥击有 33% 概率接续下一次攻击,最多连击 3 次。</description>
+            <label>Multi-Tool</label>
+            <description>[Hostile forces detected. Porudnitsa, initiating high-power delivery mode.]\nForm trait: each swing has a 33% chance to chain another attack, up to 3 hits.</description>
             <texPath>Weapon/Box_Tool</texPath>
             <drawSize>1.0</drawSize>
             
@@ -171,33 +171,33 @@
 
             <tools>
               <li>
-                <label>工具射出一</label>
+                <label>Tool Shot I</label>
                 <capacities>
                   <li>Stab</li>
                 </capacities>
-                <power>19</power>
+                <power>9</power>
                 <armorPenetration>0.40</armorPenetration>
-                <cooldownTime>2.4</cooldownTime>
+                <cooldownTime>1.2</cooldownTime>
                 <soundMeleeHit>MeleeHit_ZeusHammer</soundMeleeHit>
               </li>
               <li>
-                <label>工具射出二</label>
+                <label>Tool Shot II</label>
                 <capacities>
                   <li>Cut</li>
                 </capacities>
-                <power>16</power>
+                <power>12</power>
                 <armorPenetration>0.40</armorPenetration>
-                <cooldownTime>2.6</cooldownTime>
+                <cooldownTime>1.4</cooldownTime>
                 <soundMeleeHit>MeleeHit_PlasmaSword</soundMeleeHit>
               </li>
               <li>
-                <label>工具射出三</label>
+                <label>Tool Shot III</label>
                 <capacities>
                   <li>Stab</li>
                 </capacities>
-                <power>20</power>
+                <power>8</power>
                 <armorPenetration>0.30</armorPenetration>
-                <cooldownTime>2.2</cooldownTime>
+                <cooldownTime>1.0</cooldownTime>
                 <soundMeleeHit>MeleeHit_ZeusHammer</soundMeleeHit>
               </li>
             </tools>
@@ -207,8 +207,8 @@
           </li>
           <li>
             <!-- 与箱体模式不同:高伤害、长冷却的重型钝器。 -->
-            <label>崩解锤</label>
-            <description>[切换至锤模式。请根据崩解粒子的震动有力挥击。]\n形态特性:对建筑伤害 240%(原版钝击 150% 再加 90%)。</description>
+            <label>Disintegration Hammer</label>
+            <description>[Switching to hammer mode. Swing firmly in time with the vibration of the disintegration particles.]\nForm trait: 240% damage to buildings (vanilla blunt 150% plus 90%).</description>
             <texPath>Weapon/Box_Hammer</texPath>
             <drawSize>1.0</drawSize>
             
@@ -219,7 +219,7 @@
             
             <tools>
               <li>
-                <label>崩解锤击</label>
+                <label>Disintegration Hammer Strike</label>
                 <capacities>
                   <li>Blunt</li>
                 </capacities>
@@ -229,7 +229,7 @@
                 <soundMeleeHit>MeleeHit_ZeusHammer</soundMeleeHit>
               </li>
               <li>
-                <label>箱面</label>
+                <label>Box Face</label>
                 <capacities>
                   <li>Blunt</li>
                 </capacities>
@@ -244,8 +244,8 @@
           </li>
           <li>
             <!-- 突破工具:重型穿透钝器 + 箱面,移动速度小幅提升。 -->
-            <label>突破工具</label>
-            <description>[警告：为提升派送效率，解除对派送员的崩解粒子限制。请立即执行派送。]</description>
+            <label>Breakthrough Tool</label>
+            <description>[Warning: to improve delivery efficiency, disintegration particle limits on the courier are lifted. Execute the delivery immediately.]</description>
             <texPath>Weapon/Box_DemolitionGadget</texPath>
             <drawSize>1.0</drawSize>
             <commandIcon>Weapon/Box_DemolitionGadget</commandIcon>
@@ -256,7 +256,7 @@
             <attackEffecter>RK_DeliveryBox_AttackEffect_Breakthrough</attackEffecter>
             <tools>
               <li>
-                <label>突破锤击</label>
+                <label>Breakthrough Hammer Strike</label>
                 <capacities>
                   <li>Blunt</li>
                 </capacities>
@@ -266,7 +266,7 @@
                 <soundMeleeHit>MeleeHit_ZeusHammer</soundMeleeHit>
               </li>
               <li>
-                <label>箱面</label>
+                <label>Box Face</label>
                 <capacities>
                   <li>Blunt</li>
                 </capacities>

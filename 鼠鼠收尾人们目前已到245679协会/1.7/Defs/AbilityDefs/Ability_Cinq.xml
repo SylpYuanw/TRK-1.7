@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <AbilityDef>
     <defName>RK_Cinq_DuelDeclaration</defName>
-    <label>决斗宣告</label>
-    <description>手套划过空气，宣告一场只属于两人的较量。\n意识提高15%，心情提高15；每次成功完成近战攻击获得1层决斗节奏，每层使近战冷却降低10%，最多4层。</description>
+    <label>Declared Duel</label>
+    <description>A glove cuts through the air, declaring a contest between two.\nConsciousness +15%, Mood +15. Each successful melee attack grants 1 stack of Duel Tempo; each stack reduces melee cooldown by 10%, up to 4 stacks.</description>
     <iconPath>Ability/Cinq</iconPath>
     <targetRequired>false</targetRequired>
     <hostile>false</hostile>

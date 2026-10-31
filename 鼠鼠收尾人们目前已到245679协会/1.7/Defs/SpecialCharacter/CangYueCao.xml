@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <PawnKindDef ParentName="RKBasePawnKind">
     <defName>TRK_Special_CangYueCao</defName>
-    <label>苍月草</label>
+    <label>Baby Blue Eyes</label>
     <defaultFactionType>RK_PlayerFaction</defaultFactionType>
     <fixedGender>Female</fixedGender>
     <minGenerationAge>22</minGenerationAge>
@@ -31,22 +31,16 @@
 
   <XIYUNTE.SpecialCharacter.SpecialCharacterDef>
     <defName>TRK_Character_CangYueCao</defName>
-    <label>苍月草</label>
-    <description>苍月草是南部Seven协会的收尾人。她擅长整理情报与记住细节，却总担心遗漏了某个关键线索；浓茶和反复核对的笔记陪她度过了许多长夜。</description>
-    <detailedReport>22岁，女，苍月草，南部Seven协会成员。
-
-苍月草幼时在人类身边担任助手，后来成为鼠族图书馆的管理员。她能记住书架的位置、访客借走的册数，甚至某封旧信上被划掉的日期。一次整理归还记录时，她发现几名失踪者曾借阅过同一本不起眼的旅行手册。她将线索送交Seven协会，从此由保存记录的人变成了追索记录的人。
-
-她的记忆很好，休息却很差。已经确认过的细节也会让她在夜里起身再核对一遍，桌上的浓茶往往凉了才被想起。任务结束后，她习惯将零散笔记重新誊写，直到每个人名、每处地点都有能够相互印证的出处。
-
-Hana协会确认其派遣资料。苍月草愿意协助殖民地整理研究与调查工作；请给她一张安静的桌子，以及能够按时收工的理由。</detailedReport>
-    <arrivalGreeting>请问有清醒丸吗？啊不，不是有瘾，只是这样能让效率高点，没有或者不让的话就算了……</arrivalGreeting>
+    <label>Baby Blue Eyes</label>
+    <description>Baby Blue Eyes is a Fixer of the Southern Seven Association. She excels at organizing intelligence and remembering details, yet constantly worries about missing a crucial clue; strong tea and carefully cross-checked notes have seen her through many long nights.</description>
+    <detailedReport>22 years old, female, Baby Blue Eyes, member of the Southern Seven Association.\n\nAs a child, Baby Blue Eyes served as an assistant to humans, and later became a librarian of the Ratkin library. She could remember where every shelf stood, how many volumes each visitor borrowed, even the crossed-out date on an old letter. While sorting return records, she noticed that several missing persons had borrowed the same inconspicuous travel guide. She passed the lead to the Seven Association, and from then on she went from keeping records to pursuing them.\n\nHer memory is excellent; her rest is not. Even details she has already confirmed make her get up at night to check again, and the strong tea on her desk is usually remembered only after it has gone cold. After a mission she rewrites her scattered notes until every name and every location has a source that corroborates another.\n\nThe 하나 Association has verified her dispatch records. Baby Blue Eyes is willing to assist the colony with research and investigation; please give her a quiet desk, and a reason to clock off on time.</detailedReport>
+    <arrivalGreeting>Do you have any Wake-up? Ah, no—I'm not addicted. It just helps me work more efficiently. If you don't have any, or don't allow it, never mind...</arrivalGreeting>
     <pawnKind>TRK_Special_CangYueCao</pawnKind>
-    <association>七协会 · 南部Seven协会</association>
+    <association>Seven Association · Southern Seven Association</association>
     <iconPath>SpecialCharacter/CangYueCao</iconPath>
     <price>2000</price>
-    <firstName>苍月草</firstName>
-    <nickname>苍月草</nickname>
+    <firstName>Baby Blue Eyes</firstName>
+    <nickname>Baby Blue Eyes</nickname>
     <lastName></lastName>
     <biologicalAge>22</biologicalAge>
     <gender>Female</gender>

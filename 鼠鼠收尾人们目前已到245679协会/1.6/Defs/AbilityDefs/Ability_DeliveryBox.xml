@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <!-- 高功率·开启(独立于武器形态,所有形态共用持续时间与冷却;冷却在关闭时手动进入,故此处冷却为0) -->
   <AbilityDef>
     <defName>RK_DeliveryBox_HighPower</defName>
-    <label>派送箱-高功率模式</label>
-    <description>激活派送箱的高功率模式，持续12小时。\n持续期间 : 免疫受击硬直并大幅提升移动速度\n激活时 : 获得20点护盾，5点/秒回复\n运行至3小时 : 护盾提升至50点，15点/秒回复\n运行至9小时 : 开始受到化学灼伤\n运行至12小时 : &lt;color=#FF1A1A&gt;派送箱会击杀持有者,直接死亡&lt;/color&gt;\n可在期间随时关闭，关闭后进入24小时冷却。</description>
+    <label>Delivery Box - High Power Mode</label>
+    <description>Activates the Delivery Box's High Power Mode for 12 hours.\nWhile active: immune to stagger and greatly increased movement speed.\nOn activation: grants a 20-point shield that regenerates 5 points per second.\nAt 3 hours: shield improves to 40 points, regenerating 10 points per second.\nAt 9 hours: chemical burns begin.\nAt 12 hours: &lt;color=#FF1A1A&gt;the Delivery Box kills its wielder outright.&lt;/color&gt;\nCan be disabled at any time; disabling puts it on a 24-hour cooldown.</description>
     <abilityClass>XIYUNTE.Ability_DeliveryBoxHighPower</abilityClass>
     <iconPath>Ability/Box_Ability_Enable</iconPath>
     <targetRequired>false</targetRequired>
@@ -34,8 +34,8 @@
   <!-- 高功率·关闭(高功率激活时由武器组件显示;移除状态并为开启能力进入24小时冷却) -->
   <AbilityDef>
     <defName>RK_DeliveryBox_HighPower_Off</defName>
-    <label>关闭高功率模式</label>
-    <description>结束高功率模式，并让进入24小时冷却。</description>
+    <label>Disable High Power Mode</label>
+    <description>Ends High Power Mode and puts it on a 24-hour cooldown.</description>
     <abilityClass>XIYUNTE.Ability_DeliveryBoxHighPowerOff</abilityClass>
     <iconPath>Ability/Box_Ability_Disable</iconPath>
     <targetRequired>false</targetRequired>

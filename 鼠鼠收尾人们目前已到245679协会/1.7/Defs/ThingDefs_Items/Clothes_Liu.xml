@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <!-- 南部六协会西装：贴身层衣物，提供心灵敏感度与社交效果偏移，代号仍为 liuA 供套装判定使用。 -->
   <ThingDef ParentName="RK_ApparelMakeableBase">
     <defName>liuA</defName>
-    <description>与外套一样，里面的西装也拥有金色的花纹。作为善于进行大规模作战的协会，协会内风气也是其乐融融的像一个大家庭一样，这也是支撑六协会能进行大规模作战的原因之一。</description>
-    <label>南部六协会西装</label>
+    <description>Like the coat, the inner suit bears golden patterns. As an association skilled in large-scale operations, its atmosphere is warm and family-like—one of the reasons the 六 Association can sustain such operations.</description>
+    <label>Southern 六 Association Suit</label>
     <recipeMaker>
       <researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
       <recipeUsers Inherit="false">
@@ -86,8 +86,8 @@
   <!-- 南部六协会外套：外套层衣物，提供心灵敏感度与社交效果偏移，代号仍为 liuB 供套装判定使用。 -->
   <ThingDef ParentName="RK_ApparelMakeableBase">
     <defName>liuB</defName>
-    <description>带有金色花纹的红色外套，有较好的防利器能力和隔热能力，衣服上的金色花纹可以一定程度上抵御精神攻击。</description>
-    <label>南部六协会外套</label>
+    <description>A red coat with golden patterns, offering good sharp protection and heat insulation; the golden patterns also help resist psychic attacks to some extent.</description>
+    <label>Southern 六 Association Coat</label>
     <possessionCount>1</possessionCount>
     <recipeMaker>
       <researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>

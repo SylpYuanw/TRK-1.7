@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <!-- Seven套装进度：两件衣物共用此Hediff，severity为1/2、2/2。 -->
   <HediffDef>
     <defName>RK_SevenSet</defName>
-    <label>Seven协会套装</label>
+    <label>Seven Association Set</label>
     <defaultLabelColor>(0.25,0.75,0.65)</defaultLabelColor>
-    <description>七份记录彼此咬合，沉默地把答案写在刀锋之前。\n穿齐两件南部Seven协会制服后，近战或远程攻击目标时施加"弱点解析"。</description>
+    <description>Intelligence interlocks like gears; the final answer is delivered by the blade that sees through it.\nWearing both Southern Seven Association uniform pieces causes melee or ranged attacks to inflict Weakness Analysis.</description>
     <hediffClass>HediffWithComps</hediffClass>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -17,12 +17,12 @@
       <li>
         <minSeverity>1</minSeverity>
         <label>1/2</label>
-        <overrideTooltip>只穿戴了一件Seven协会制服部件，尚未构成套装。</overrideTooltip>
+        <overrideTooltip>Only one Seven Association uniform piece is worn; the set is incomplete.</overrideTooltip>
       </li>
       <li>
         <minSeverity>2</minSeverity>
         <label>2/2</label>
-        <overrideTooltip>已完整穿戴Seven协会套装，近战或远程攻击会使目标获得弱点解析。</overrideTooltip>
+        <overrideTooltip>The full Seven Association set is worn; melee or ranged attacks inflict Weakness Analysis.</overrideTooltip>
       </li>
     </stages>
     <comps>
@@ -36,9 +36,9 @@
   <!-- 弱点解析：目标的钝击、尖锐与热能护甲均乘以0.8；重复命中只刷新持续时间。 -->
   <HediffDef>
     <defName>RK_SevenWeaknessAnalysis</defName>
-    <label>弱点解析</label>
+    <label>Weakness Analysis</label>
     <defaultLabelColor>(0.25,0.75,0.65)</defaultLabelColor>
-    <description>破绽已被准确标记。\n持续3小时，效果不可叠加。</description>
+    <description>The opening has been precisely marked.\nLasts 3 hours; does not stack.</description>
     <hediffClass>HediffWithComps</hediffClass>
     <isBad>true</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>

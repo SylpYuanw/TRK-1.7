@@ -2,8 +2,8 @@
     <!-- 2协会内衬 -->
   <ThingDef ParentName="RK_ApparelMakeableBase">
     <defName>zweiA</defName>
-    <description>“我们的座右铭是什么？”\n“您的盾牌。”\n一件米黄色的衬衫加上马甲作为打底作为Zwei协会成员的制服，维持着所负责地区的治安</description>
-    <label>南部Zwei协会西装</label>
+    <description>"What is our motto?"\n"Your shield."\nA cream-colored shirt with a vest serves as the base uniform of Zwei Association members, who keep the peace in their assigned district.</description>
+    <label>Southern Zwei Association Suit</label>
     <recipeMaker>
       <researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
       <recipeUsers Inherit="false">
@@ -83,8 +83,8 @@
 	<!-- 2协会外套 -->
  <ThingDef ParentName="RK_ApparelMakeableBase">
     <defName>zweiB</defName>
-    <description>有些厚大的衣物，能提供不错的防御力，不过Zwei协会的收尾人们在暗中保护目标时不会选择把这么有标志性的衣物套在身上，可能会在外面再套一件，或是准备保护目标的时候立马披上。\n不过嘛，保护的委托费也过于贵了。</description>
-    <label>南部Zwei协会大衣</label>
+    <description>A rather thick garment that offers decent protection, but Zwei Association Fixers on covert protection details won't wear something so distinctive openly—they may layer another coat over it, or throw it on the moment they move to protect their target.\nStill, protection commissions are far too expensive as well.</description>
+    <label>Southern Zwei Association Coat</label>
     <possessionCount>1</possessionCount>
     <recipeMaker>
       <researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>

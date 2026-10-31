@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <!-- 南部Cinq协会羽毛帽：头饰层，覆盖头部与双耳，提供近战闪避与社交加成。 -->
   <ThingDef ParentName="RK_HatMakeableBase">
     <defName>RK_cinqhat</defName>
-    <label>南部Cinq协会羽毛帽</label>
-    <description>帽子左侧插有羽毛的宽檐帽，因成员们大多都是右撇子，所以将羽毛插在左侧避免影响挥剑</description>
+    <label>Southern Cinq Association Plumed Hat</label>
+    <description>A wide-brimmed hat with a feather on the left side. Most members are right-handed, so the feather sits on the left to keep it out of the way when swinging a sword.</description>
     <graphicData>
       <texPath>Clothing/cinqhat</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -80,8 +80,8 @@
   <!-- 南部Cinq协会西装：贴身层衣物，提供近战闪避与移动速度加成。 -->
   <ThingDef ParentName="RK_ApparelMakeableBase">
     <defName>cinqsuit</defName>
-    <label>南部Cinq协会西装</label>
-    <description>贴身的蓝调西装，活动性很不错，即使做出夸张的动作也不会导致裤子开裂</description>
+    <label>Southern Cinq Association Suit</label>
+    <description>A fitted blue suit with excellent mobility; even exaggerated movements won't split the trousers.</description>
     <recipeMaker>
       <researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
       <recipeUsers Inherit="false">
@@ -169,8 +169,8 @@
   <!-- 南部Cinq协会披风：贴身层衣物，提供近战闪避与移动速度加成。 -->
   <ThingDef ParentName="RK_ApparelMakeableBase">
     <defName>cinqcloak</defName>
-    <label>南部Cinq协会披风</label>
-    <description>披风通常裹在左肩，在有需要时可以用左手拉到身前阻挡或偏转对方的攻击，或是干扰对方视线辅助进攻，总之在战斗的时候不止是衣物这么简单。</description>
+    <label>Southern Cinq Association Cape</label>
+    <description>The cape is usually wrapped around the left shoulder. When needed, the left hand can pull it across the body to block or deflect attacks, or to obstruct an opponent's view while attacking. In battle it is far more than clothing.</description>
     <recipeMaker>
       <researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
       <recipeUsers Inherit="false">

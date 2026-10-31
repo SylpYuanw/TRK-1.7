@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <ThoughtDef>
     <defName>RK_Cinq_DuelMoodThought</defName>
@@ -8,8 +8,8 @@
     <stackedEffectMultiplier>1</stackedEffectMultiplier>
     <stages>
       <li>
-        <label>决斗宣告</label>
-        <description>当手套落地，喧闹的街巷便只剩剑锋与呼吸。\n决斗宣告带来的战意使心情亢奋。</description>
+        <label>Declared Duel</label>
+        <description>When the glove hits the ground, only blades and breath remain in the noisy street.\nThe fighting spirit of a Declared Duel lifts the mood.</description>
         <baseMoodEffect>15</baseMoodEffect>
       </li>
     </stages>

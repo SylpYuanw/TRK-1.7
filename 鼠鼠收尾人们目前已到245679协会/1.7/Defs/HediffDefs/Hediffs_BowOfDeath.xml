@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <!-- 箭矢:每次命中保留一份独立 Hediff,每份提供 +14% 承伤系数,最多 4 份。
        不自然愈合且不可包扎,只能通过手术"取出箭矢"清除。 -->
   <HediffDef>
     <defName>BowOfDeath_StuckArrow</defName>
     <hediffClass>XIYUNTE.Hediff_BowOfDeathStuckArrow</hediffClass>
-    <label>死之箭嵌入</label>
-    <description>一支嵌入体内的死之箭。取出前会让该单位承受更多伤害。</description>
+    <label>Embedded Arrow of Death</label>
+    <description>An Arrow of Death lodged in the body. Until it is removed, the unit takes increased damage.</description>
     <isBad>true</isBad>
     <tendable>false</tendable>
     <initialSeverity>1</initialSeverity>
@@ -23,8 +23,8 @@
   <HediffDef>
     <defName>BowOfDeath_Consciousness</defName>
     <hediffClass>HediffWithComps</hediffClass>
-    <label>意识提升</label>
-    <description>射击后短时间内意识提高。</description>
+    <label>Heightened Awareness</label>
+    <description>Briefly raises consciousness after firing.</description>
     <isBad>false</isBad>
     <tendable>false</tendable>
     <!-- 健康页文字色:四协会红偏淡深色系(#96272B,取自 Textures/Clothing/si_uniform.png 的红色主色)。 -->

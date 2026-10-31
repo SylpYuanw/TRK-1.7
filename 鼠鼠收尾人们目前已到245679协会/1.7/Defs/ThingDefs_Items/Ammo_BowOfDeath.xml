@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <!-- 死之箭:补充"闪弓"次数的弹药,在机械加工台或锻造台用钢铁制作。 -->
   <ThingDef ParentName="ResourceBase">
     <defName>Bow_of_Death_Arrow</defName>
-    <label>死之箭</label>
-    <description>四协会为死之弓准备的箭矢。装入死之弓后可换取一次闪弓射击。</description>
+    <label>Arrow of Death</label>
+    <description>Arrows prepared by the Si Association for the Bow of Death. Loading one into the Bow of Death grants one Bow's Glimmer shot.</description>
     <graphicData>
       <texPath>Item/Bow_of_Death_Arrow</texPath>
       <!-- 堆叠显示:texPath 指向只含该物品贴图的文件夹,文件夹内按文件名排序取 _a/_b/_c 三张;

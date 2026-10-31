@@ -3,8 +3,8 @@
   <!-- 二协会双手剑 -->
   <ThingDef ParentName="RK_MeleeWeapon">
     <defName>zweiC</defName>
-    <label>南部Zwei协会双手剑</label>
-    <description>南部Zwei协会收尾人们使用等身高的双手大剑。巨大的武器是其特征，能让使用者更好地做到防御。</description>
+    <label>Southern Zwei Association Two-Handed Sword</label>
+    <description>The Southern Zwei Association Fixers wield two-handed greatswords as tall as they are. The massive weapon is their hallmark, and lets the wielder defend all the better.</description>
     <graphicData>
       <texPath>Weapon/zweiC</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -30,7 +30,7 @@
     <costStuffCount>140</costStuffCount>
     <tools>
       <li>
-        <label>剑柄</label>
+        <label>Hilt</label>
         <capacities>
           <li>Blunt</li>
         </capacities>
@@ -39,7 +39,7 @@
         <cooldownTime>2.0</cooldownTime>
       </li>
       <li>
-        <label>剑尖</label>
+        <label>Tip</label>
         <capacities>
           <li>Stab</li>
         </capacities>
@@ -48,7 +48,7 @@
         <cooldownTime>2.3</cooldownTime>
       </li>
       <li>
-        <label>剑刃</label>
+        <label>Blade</label>
         <capacities>
           <li>Cut</li>
         </capacities>

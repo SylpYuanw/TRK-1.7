@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <PawnKindDef ParentName="RKBasePawnKind">
     <defName>TRK_Special_JingLingLan</defName>
-    <label>精灵兰</label>
+    <label>Florida Ghost Orchid</label>
     <defaultFactionType>RK_PlayerFaction</defaultFactionType>
     <fixedGender>Female</fixedGender>
     <minGenerationAge>23</minGenerationAge>
@@ -28,21 +28,15 @@
 
   <XIYUNTE.SpecialCharacter.SpecialCharacterDef>
     <defName>TRK_Character_JingLingLan</defName>
-    <label>精灵兰</label>
-    <description>精灵兰是四协会的收尾人。她以死之弓执行远程狩猎与清除委托，习惯在确认目标后再一次性完成射击。</description>
-    <detailedReport>23岁，女，精灵兰，东部し协会成员。
-
-精灵兰在鼠族王国接受继承人教育，后来成为负责追踪和狩猎的收尾人。她熟悉野外路线，能从脚印、断枝和风向中判断目标的去向，也能在长时间等待后保持稳定的准心。
-
-她不喜欢无意义的交谈，对目标之外的情绪反应也十分淡漠。任务记录里很少出现多余的描述，通常只有路线、距离、箭矢数量和结果。她会把死之弓擦拭干净，补足箭袋，再前往下一个委托地点。
-
-Hana协会确认其派遣资料。精灵兰愿意为殖民地处理远距离威胁和狩猎工作；她只要求在出发前确认风向，并确保箭袋没有被遗忘。</detailedReport>
-    <arrivalGreeting>拉开弓弦，投射出箭矢，公平的将死亡带给一切所有活着的人。不过如果还没有工作分配给我的话，请让我再多休息一会儿吧。</arrivalGreeting>
+    <label>Florida Ghost Orchid</label>
+    <description>Florida Ghost Orchid is a Fixer of the Si Association. She uses the Bow of Death for long-range hunting and elimination contracts, and prefers to confirm her target before finishing the shot in one go.</description>
+    <detailedReport>23 years old, female, Florida Ghost Orchid, member of the Eastern Si Association.\n\nFlorida Ghost Orchid was raised as an heir before her family declined and she left home, later becoming a Fixer who specializes in tracking and assassination. She knows wilderness routes and can judge a target's direction from footprints, broken branches and the wind, and she can hold a steady aim after long hours of waiting.\n\nShe dislikes conversation and is indifferent to others' emotions. Her work reports rarely contain extra description—usually just route, distance, arrow count and result. She wipes her bow clean, refills her quiver, and moves on to the next commission.\n\nThe 하나 Association has verified her dispatch records. Florida Ghost Orchid is willing to handle long-range threats and hunting for the colony; she asks only that the wind be checked before departure, and that her quiver not be forgotten.</detailedReport>
+    <arrivalGreeting>Draw the string, loose the arrow, and bring death fairly to all living things. But if no work has been assigned to me yet, please let me rest a little longer.</arrivalGreeting>
     <pawnKind>TRK_Special_JingLingLan</pawnKind>
-    <association>四协会 · 东部し协会</association>
+    <association>Si Association · Eastern Si Association</association>
     <iconPath>SpecialCharacter/JingLingLan</iconPath>
     <price>2000</price>
-    <firstName>精灵兰</firstName><nickname>精灵兰</nickname><lastName />
+    <firstName>Florida Ghost Orchid</firstName><nickname>Florida Ghost Orchid</nickname><lastName />
     <biologicalAge>23</biologicalAge><gender>Female</gender>
     <bodyType>Thin</bodyType><headType>RK_HeadType_Head4</headType><hair>RK_PonyA</hair>
     <hairColor>(0.714,0.718,0.729,1.000)</hairColor>

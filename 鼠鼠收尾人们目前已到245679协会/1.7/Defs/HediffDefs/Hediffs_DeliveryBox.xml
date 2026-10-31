@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <!-- 高功率主状态：严重度=已运行时间/总时长(12h)，lethalSeverity=1 使其在12h直接判死 -->
   <HediffDef>
     <defName>RK_DeliveryBox_HighPower</defName>
-    <label>派送箱-高功率模式</label>
-    <description>高功率模式进行中，移动速度提升且免疫受击硬直；随运行时间强化(护盾/化学灼伤)，运行满12小时将严重超载死亡。</description>
+    <label>Delivery Box - High Power Mode</label>
+    <description>High Power Mode is active: movement speed increased and immune to stagger. Effects intensify over time (shield / chemical burns); at 12 hours the unit dies of severe overload.</description>
     <hediffClass>XIYUNTE.Hediff_DeliveryBoxHighPower</hediffClass>
     <defaultLabelColor>(0.9, 0.7, 0.2)</defaultLabelColor>
     <isBad>false</isBad>
@@ -19,7 +19,7 @@
       <li>
         <minSeverity>0</minSeverity>
         <label>I</label>
-        <overrideTooltip>[阶段一。开始派送辅助及管理流程。请沉着地开拓生路。]</overrideTooltip>
+        <overrideTooltip>[Stage I. Beginning delivery assistance and management. Proceed calmly and find a way forward.]</overrideTooltip>
         <statFactors>
           <StaggerDurationFactor>0</StaggerDurationFactor>
         </statFactors>
@@ -30,7 +30,7 @@
       <li>
         <minSeverity>0.25</minSeverity>
         <label>II</label>
-        <overrideTooltip>[阶段2。派送单元功率提升。建议迅速开拓。]</overrideTooltip>
+        <overrideTooltip>[Stage II. Delivery unit power increased. Expedite your delivery.]</overrideTooltip>
         <statFactors>
           <StaggerDurationFactor>0</StaggerDurationFactor>
         </statFactors>
@@ -42,7 +42,7 @@
       <li>
         <minSeverity>0.75</minSeverity>
         <label>III</label>
-        <overrideTooltip>[阶段三。警告。任务超时。进入派送加速最终阶段。进一步的时间延误将无法保障您的安全。]</overrideTooltip>
+        <overrideTooltip>[Stage III. Warning. Delivery overdue. Entering final acceleration stage. Further delay cannot guarantee your safety.]</overrideTooltip>
         <statFactors>
           <StaggerDurationFactor>0</StaggerDurationFactor>
         </statFactors>
@@ -70,8 +70,8 @@
   <!-- 单一护盾 Hediff：严重度 0.01 表示阶段 I，严重度 1 表示阶段 II。 -->
   <HediffDef>
     <defName>RK_DeliveryBox_HighPower_Shield</defName>
-    <label>高功率护盾</label>
-    <description>高功率模式提供的真实伤害护盾。阶段 I 上限20点，5点/秒回复；阶段 II 上限50点，15点/秒回复。</description>
+    <label>High Power Shield</label>
+    <description>A true-damage shield granted by High Power Mode. Stage I: 20 points, regenerating 5 points per second. Stage II: 40 points, regenerating 10 points per second.</description>
     <hediffClass>XIYUNTE.Hediff_DeliveryBoxShield</hediffClass>
     <renderNodeProperties>
       <li Class="XIYUNTE.PawnRenderNodeProperties_DeliveryBoxShield">
@@ -101,8 +101,8 @@
       <li Class="XIYUNTE.HediffCompProperties_DeliveryBoxShieldEnergy">
         <initialMaxDamage>20</initialMaxDamage>
         <initialRegenPerSecond>5</initialRegenPerSecond>
-        <stage2MaxDamage>50</stage2MaxDamage>
-        <stage2RegenPerSecond>15</stage2RegenPerSecond>
+        <stage2MaxDamage>40</stage2MaxDamage>
+        <stage2RegenPerSecond>10</stage2RegenPerSecond>
       </li>
     </comps>
   </HediffDef>

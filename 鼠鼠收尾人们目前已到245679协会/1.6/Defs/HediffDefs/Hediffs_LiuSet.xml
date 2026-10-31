@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <!-- 六协会套装状态：severity = 已穿戴件数(1 = 1/2，2 = 2/2)。
        进度由内衬/制服上的 XIYUNTE.CompProperties_LiuPiece 在装备/卸下时维护，
@@ -8,8 +8,8 @@
        maxSeverity = 2 使件数天然封顶，重复装备事件不会把进度推过 2/2。 -->
   <HediffDef>
     <defName>RK_LiuSet</defName>
-    <label>六协会套装</label>
-    <description>六协会制服的完整套装状态。\n穿齐内衬与制服时成为套装成员，为自身与周围的成员提供意识增益。</description>
+    <label>六 Association Set</label>
+    <description>Full 六 Association uniform set state.\nWearing both the inner shirt and uniform makes you a set member, granting a consciousness buff to yourself and nearby members.</description>
     <hediffClass>XIYUNTE.Hediff_LiuSet</hediffClass>
     <defaultLabelColor>(0.55, 0.15, 0.15)</defaultLabelColor>
     <isBad>false</isBad>
@@ -23,13 +23,13 @@
       <li>
         <minSeverity>0</minSeverity>
         <label>1/2</label>
-        <overrideTooltip>只穿戴了一件六协会制服部件，尚未构成套装。</overrideTooltip>
+        <overrideTooltip>Only one 六 Association uniform piece is worn; the set is incomplete.</overrideTooltip>
       </li>
       <!-- 2/2：套装成员，开始向外提供光环。 -->
       <li>
         <minSeverity>2</minSeverity>
         <label>2/2</label>
-        <overrideTooltip>已完整穿戴六协会套装，成为套装成员：为自身与周围成员提供意识增益。</overrideTooltip>
+        <overrideTooltip>The full 六 Association set is worn; you are a set member, granting a consciousness buff to yourself and nearby members.</overrideTooltip>
       </li>
     </stages>
     <comps>
@@ -54,8 +54,8 @@
        依赖 HediffComp_Disappears 到期：来源离开/失去套装后自动移除。 -->
   <HediffDef>
     <defName>RK_LiuAuraBuff</defName>
-    <label>六协会光环</label>
-    <description>受到六协会套装成员的意识增益。</description>
+    <label>Loyal Heart</label>
+    <description>Receiving the consciousness buff from a 六 Association set member.</description>
     <hediffClass>XIYUNTE.Hediff_LiuAuraBuff</hediffClass>
     <defaultLabelColor>(0.55, 0.15, 0.15)</defaultLabelColor>
     <isBad>false</isBad>

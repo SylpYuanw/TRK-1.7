@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
  <Defs>
 
   <ThingDef ParentName="RK_MeleeWeapon">
     <defName>liu_LongSword</defName>
-    <label>南部六协会直剑</label>
-    <description>缠绕着火焰的武器任谁来了都能挥舞使用。六协会的火焰并非谁都能随意燃起，也无法由自己一人将火种传递下去。也许出身、地区和本领不同，但六协会的火焰是温暖的。\n\n持有时，最低舒适温度-60°</description>
+    <label>Southern 六 Association Straight Sword</label>
+    <description>A weapon wreathed in flame that anyone can wield. Yet the 六 Association's flame cannot be kindled by just anyone, nor passed on by one person alone. Origins, regions and skills may differ, but the 六 Association's flame is warm.\n\nWhile held: minimum comfortable temperature -60°C.</description>
     <possessionCount>1</possessionCount>
     <graphicData>
       <texPath>Weapon/liuC</texPath>
@@ -39,7 +39,7 @@
     </stuffCategories>
     <tools>
       <li>
-        <label>剑柄</label>
+        <label>Hilt</label>
         <capacities>
           <li>Blunt</li>
         </capacities>
@@ -48,7 +48,7 @@
         <cooldownTime>1.9</cooldownTime>
       </li>
       <li>
-        <label>剑尖</label>
+        <label>Tip</label>
         <capacities>
           <li>Stab</li>
         </capacities>
@@ -65,7 +65,7 @@
         </extraMeleeDamages>
       </li>
       <li>
-        <label>剑刃</label>
+        <label>Blade</label>
         <capacities>
           <li>Cut</li>
         </capacities>

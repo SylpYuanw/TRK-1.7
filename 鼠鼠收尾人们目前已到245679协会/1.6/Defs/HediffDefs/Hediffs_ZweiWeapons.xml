@@ -4,8 +4,8 @@
   <HediffDef>
     <defName>zweiC_Defense</defName>
     <!-- <label>&lt;color=#FAD25D&gt;Zwei协会-双手剑&lt;/color&gt;</label> -->
-     <label>Zwei协会-双手剑</label>
-    <description>您的盾牌。</description>
+     <label>Zwei Association - Two-Handed Sword</label>
+    <description>Your shield.</description>
     <defaultLabelColor>(250,210,93)</defaultLabelColor>
     <isBad>false</isBad>
     <tendable>false</tendable>
