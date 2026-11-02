@@ -17,7 +17,7 @@
       <texPath>Clothing/nineja</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <ignoreThingDrawColor>true</ignoreThingDrawColor>
-      <drawSize>1.05</drawSize>
+      <drawSize>0.8</drawSize>
     </graphicData>
     <costStuffCount>105</costStuffCount>
     <stuffCategories>
@@ -120,6 +120,7 @@
       <texPath>Clothing/ninec</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <ignoreThingDrawColor>true</ignoreThingDrawColor>
+      <drawSize>0.8</drawSize>
     </graphicData>
     <costStuffCount>95</costStuffCount>
     <costList>
@@ -193,6 +194,7 @@
       <texPath>Clothing/hmj</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <ignoreThingDrawColor>true</ignoreThingDrawColor>
+      <drawSize>0.8</drawSize>
     </graphicData>
     <uiIconScale>1.25</uiIconScale>
     <costStuffCount>25</costStuffCount>

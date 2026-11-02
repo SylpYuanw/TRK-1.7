@@ -101,7 +101,7 @@
       <texPath>Clothing/liuB</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <ignoreThingDrawColor>true</ignoreThingDrawColor>
-      <drawSize>1.05</drawSize>
+      <drawSize>0.8</drawSize>
     </graphicData>
     <costStuffCount>85</costStuffCount>
     <costList>

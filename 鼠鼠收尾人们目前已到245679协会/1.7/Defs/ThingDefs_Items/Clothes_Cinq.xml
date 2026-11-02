@@ -9,6 +9,7 @@
       <texPath>Clothing/cinqhat</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <ignoreThingDrawColor>true</ignoreThingDrawColor>
+      <drawSize>0.8</drawSize>
     </graphicData>
     <uiIconScale>1.25</uiIconScale>
     <costStuffCount>35</costStuffCount>
@@ -94,6 +95,7 @@
       <texPath>Clothing/cinqsuit</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <ignoreThingDrawColor>true</ignoreThingDrawColor>
+      <drawSize>0.8</drawSize>
     </graphicData>
     <costStuffCount>85</costStuffCount>
     <stuffCategories>
@@ -183,7 +185,7 @@
       <texPath>Clothing/cinqcloak</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <ignoreThingDrawColor>true</ignoreThingDrawColor>
-      <drawSize>1.05</drawSize>
+      <drawSize>0.8</drawSize>
     </graphicData>
     <costStuffCount>65</costStuffCount>
     <stuffCategories>
