@@ -5,7 +5,7 @@
        而原版 ComfyTemperatureMin 的装备隔温只统计服装，武器的 Insulation_Cold 偏移不参与计算。 -->
   <HediffDef>
     <defName>liu_LongSword_WarmFlame</defName>
-    <label>六 Association - Flame</label>
+    <label>Liu Association - Flame</label>
     <description>A warm flame.</description>
     <defaultLabelColor>(0.55, 0.15, 0.15)</defaultLabelColor>
     <isBad>false</isBad>

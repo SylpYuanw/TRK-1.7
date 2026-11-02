@@ -8,8 +8,8 @@
        maxSeverity = 2 使件数天然封顶，重复装备事件不会把进度推过 2/2。 -->
   <HediffDef>
     <defName>RK_LiuSet</defName>
-    <label>六 Association Set</label>
-    <description>Full 六 Association uniform set state.\nWearing both the inner shirt and uniform makes you a set member, granting a consciousness buff to yourself and nearby members.</description>
+    <label>Liu Association Set</label>
+    <description>Full Liu Association uniform set state.\nWearing both the inner shirt and uniform makes you a set member, granting a consciousness buff to yourself and nearby members.</description>
     <hediffClass>XIYUNTE.Hediff_LiuSet</hediffClass>
     <defaultLabelColor>(0.55, 0.15, 0.15)</defaultLabelColor>
     <isBad>false</isBad>
@@ -23,13 +23,13 @@
       <li>
         <minSeverity>0</minSeverity>
         <label>1/2</label>
-        <overrideTooltip>Only one 六 Association uniform piece is worn; the set is incomplete.</overrideTooltip>
+        <overrideTooltip>Only one Liu Association uniform piece is worn; the set is incomplete.</overrideTooltip>
       </li>
       <!-- 2/2：套装成员，开始向外提供光环。 -->
       <li>
         <minSeverity>2</minSeverity>
         <label>2/2</label>
-        <overrideTooltip>The full 六 Association set is worn; you are a set member, granting a consciousness buff to yourself and nearby members.</overrideTooltip>
+        <overrideTooltip>The full Liu Association set is worn; you are a set member, granting a consciousness buff to yourself and nearby members.</overrideTooltip>
       </li>
     </stages>
     <comps>
@@ -55,7 +55,7 @@
   <HediffDef>
     <defName>RK_LiuAuraBuff</defName>
     <label>Loyal Heart</label>
-    <description>Receiving the consciousness buff from a 六 Association set member.</description>
+    <description>Receiving the consciousness buff from a Liu Association set member.</description>
     <hediffClass>XIYUNTE.Hediff_LiuAuraBuff</hediffClass>
     <defaultLabelColor>(0.55, 0.15, 0.15)</defaultLabelColor>
     <isBad>false</isBad>

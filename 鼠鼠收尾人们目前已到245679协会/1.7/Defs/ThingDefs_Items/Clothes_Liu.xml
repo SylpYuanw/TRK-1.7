@@ -3,8 +3,8 @@
   <!-- 南部六协会西装：贴身层衣物，提供心灵敏感度与社交效果偏移，代号仍为 liuA 供套装判定使用。 -->
   <ThingDef ParentName="RK_ApparelMakeableBase">
     <defName>liuA</defName>
-    <description>Like the coat, the inner suit bears golden patterns. As an association skilled in large-scale operations, its atmosphere is warm and family-like—one of the reasons the 六 Association can sustain such operations.</description>
-    <label>Southern 六 Association Suit</label>
+    <description>Like the coat, the inner suit bears golden patterns. As an association skilled in large-scale operations, its atmosphere is warm and family-like—one of the reasons the Liu Association can sustain such operations.</description>
+    <label>Southern Liu Association Suit</label>
     <recipeMaker>
       <researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
       <recipeUsers Inherit="false">
@@ -87,7 +87,7 @@
   <ThingDef ParentName="RK_ApparelMakeableBase">
     <defName>liuB</defName>
     <description>A red coat with golden patterns, offering good sharp protection and heat insulation; the golden patterns also help resist psychic attacks to some extent.</description>
-    <label>Southern 六 Association Coat</label>
+    <label>Southern Liu Association Coat</label>
     <possessionCount>1</possessionCount>
     <recipeMaker>
       <researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>

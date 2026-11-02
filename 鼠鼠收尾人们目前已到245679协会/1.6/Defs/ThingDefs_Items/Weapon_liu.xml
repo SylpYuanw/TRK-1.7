@@ -3,8 +3,8 @@
 
   <ThingDef ParentName="RK_MeleeWeapon">
     <defName>liu_LongSword</defName>
-    <label>Southern 六 Association Straight Sword</label>
-    <description>A weapon wreathed in flame that anyone can wield. Yet the 六 Association's flame cannot be kindled by just anyone, nor passed on by one person alone. Origins, regions and skills may differ, but the 六 Association's flame is warm.\n\nWhile held: minimum comfortable temperature -60°C.</description>
+    <label>Southern Liu Association Straight Sword</label>
+    <description>A weapon wreathed in flame that anyone can wield. Yet the Liu Association's flame cannot be kindled by just anyone, nor passed on by one person alone. Origins, regions and skills may differ, but the Liu Association's flame is warm.\n\nWhile held: minimum comfortable temperature -60°C.</description>
     <possessionCount>1</possessionCount>
     <graphicData>
       <texPath>Weapon/liuC</texPath>
