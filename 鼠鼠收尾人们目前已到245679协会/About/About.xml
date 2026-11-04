@@ -1,50 +1,54 @@
-<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-  <name>TRK_初版9协会</name>
-  <author>炸黄瓜条</author>
-  <supportedVersions>
-    <li>1.6</li>
-    <li>1.7</li>
-  </supportedVersions>
-  <description>测试创造mod物品</description>
-  <packageId>Trk.Nine</packageId>
-  <modDependenciesByVersion>
-    <v1.6>
-      <li>
-        <packageId>brrainz.harmony</packageId>
-        <displayName>Harmony</displayName>
-        <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
-      </li>
-      <li>
-        <packageId>Solaris.RatkinRaceMod</packageId>
-        <displayName>New Ratkin Plus</displayName>
-        <steamWorkshopUrl>steam://url/CommunityFilePage/1578693166</steamWorkshopUrl>
-      </li>
-    </v1.6>
-    <v1.7>
-      <li>
-        <packageId>brrainz.harmony</packageId>
-        <displayName>Harmony</displayName>
-        <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
-      </li>
-      <li>
-        <packageId>Solaris.RatkinRaceMod</packageId>
-        <displayName>New Ratkin Plus</displayName>
-        <steamWorkshopUrl>steam://url/CommunityFilePage/1578693166</steamWorkshopUrl>
-      </li>
-      <li>
-        <packageId>Chezhou.RimUnity</packageId>
-        <displayName>RimUnity</displayName>
-        <steamWorkshopUrl>steam://url/CommunityFilePage/3819570122</steamWorkshopUrl>
-      </li>
-    </v1.7>
-  </modDependenciesByVersion>
-  <loadAfter>
-    <li>brrainz.harmony</li>
-    <li>Solaris.RatkinRaceMod</li>
-    <li>Chezhou.RimUnity</li>
-    <!-- 软前置：仅当 Mya's fufu 激活时加载本模组的 fufu 建筑（目录由 LoadFolders.xml 的 IfModActive 控制，
-         Def 由 MayRequire 控制）。写在此处只调整加载顺序，不构成硬依赖。 -->
-    <li>fxz.myafufu</li>
-  </loadAfter>
+<name>Ratkin Fixer Association+</name>
+<author>炸黄瓜条</author>
+<supportedVersions>
+<li>1.6</li>
+<li>1.7</li>
+</supportedVersions>
+<description> 为鼠族增添了一些来自月亮计划作品中一部分来自于协会的制式装备与可在联络台招募的特殊单位。 目前已有2，4，5，6，7，9协会装备 。
+ 还有一点玩偶（需要《萌羊的fufu》作为前置）
+ 感谢您的游玩。
+ Adds standard-issue equipment from some Associations (from Project Moon's works) and special units recruitable at the comms console to the Ratkin. Currently includes equipment from Associations 2, 4, 5, 6, 7, and 9. 
+There are also some plushies (requires "Mya'sFufu" as a prerequisite).
+Thank you for playing. </description>
+<packageId>Trk.hana</packageId>
+<modDependenciesByVersion>
+<v1.6>
+<li>
+<packageId>brrainz.harmony</packageId>
+<displayName>Harmony</displayName>
+<steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+</li>
+<li>
+<packageId>Solaris.RatkinRaceMod</packageId>
+<displayName>New Ratkin Plus</displayName>
+<steamWorkshopUrl>steam://url/CommunityFilePage/1578693166</steamWorkshopUrl>
+</li>
+</v1.6>
+<v1.7>
+<li>
+<packageId>brrainz.harmony</packageId>
+<displayName>Harmony</displayName>
+<steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+</li>
+<li>
+<packageId>Solaris.RatkinRaceMod</packageId>
+<displayName>New Ratkin Plus</displayName>
+<steamWorkshopUrl>steam://url/CommunityFilePage/1578693166</steamWorkshopUrl>
+</li>
+<li>
+<packageId>Chezhou.RimUnity</packageId>
+<displayName>RimUnity</displayName>
+<steamWorkshopUrl>steam://url/CommunityFilePage/3819570122</steamWorkshopUrl>
+</li>
+</v1.7>
+</modDependenciesByVersion>
+<loadAfter>
+<li>brrainz.harmony</li>
+<li>Solaris.RatkinRaceMod</li>
+<li>Chezhou.RimUnity</li>
+<!--  软前置：仅当 Mya's fufu 激活时加载本模组的 fufu 建筑（目录由 LoadFolders.xml 的 IfModActive 控制，
+         Def 由 MayRequire 控制）。写在此处只调整加载顺序，不构成硬依赖。  -->
+<li>fxz.myafufu</li>
+</loadAfter>
 </ModMetaData>
