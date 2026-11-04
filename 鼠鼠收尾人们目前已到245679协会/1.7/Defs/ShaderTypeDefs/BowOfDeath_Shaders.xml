@@ -4,10 +4,10 @@
        shaderPath 使用本模组 RimUnity 清单中的逻辑路径，宿主包装由 HostAssets.ToHost 提供。 -->
   <ShaderTypeDef>
     <defName>Trk_BowOfDeathAimWind</defName>
-    <shaderPath>Bundles/trk_bowofdeath_win/Assets/Data/Trk.Nine/Materials/Trk/BowOfDeathAimWind.shader</shaderPath>
+    <shaderPath>Bundles/trk_bowofdeath_win/Assets/Data/Trk.hana/Materials/Trk/BowOfDeathAimWind.shader</shaderPath>
   </ShaderTypeDef>
   <ShaderTypeDef>
     <defName>Trk_BowOfDeathAimCharge</defName>
-    <shaderPath>Bundles/trk_bowofdeath_win/Assets/Data/Trk.Nine/Materials/Trk/BowOfDeathAimCharge.shader</shaderPath>
+    <shaderPath>Bundles/trk_bowofdeath_win/Assets/Data/Trk.hana/Materials/Trk/BowOfDeathAimCharge.shader</shaderPath>
   </ShaderTypeDef>
 </Defs>
