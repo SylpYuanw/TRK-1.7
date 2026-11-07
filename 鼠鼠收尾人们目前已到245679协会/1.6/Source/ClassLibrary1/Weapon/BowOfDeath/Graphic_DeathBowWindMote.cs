@@ -4,6 +4,7 @@ using Verse;
 namespace XIYUNTE
 {
     // 逐实例传递朝向、随机种子及最终透明度，不修改MaterialPool中的共享材质。
+    [StaticConstructorOnStartup]
     public class Graphic_DeathBowWindMote : Graphic_Mote
     {
         private static readonly MaterialPropertyBlock InstanceProperties = new MaterialPropertyBlock();

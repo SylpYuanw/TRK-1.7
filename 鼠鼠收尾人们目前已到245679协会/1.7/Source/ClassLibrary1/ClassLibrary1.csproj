@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
-    <AssemblyName>ClassLibrary1</AssemblyName>
+    <AssemblyName>RatkinFixerAssociation</AssemblyName>
     <RootNamespace>ClassLibrary1</RootNamespace>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
@@ -12,7 +12,7 @@
     <OutputPath>../../Assemblies/</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
-    <RimWorldDir Condition="'$(RimWorldDir)' == ''">C:/Users/Administrator/Desktop/天翼种/本机源码/rimworlddll</RimWorldDir>
+    <RimWorldDir Condition="'$(RimWorldDir)' == ''">C:/Users/Administrator/Desktop/天翼种/本机源码/rim1.7dll</RimWorldDir>
     <RimUnityDir Condition="'$(RimUnityDir)' == ''">D:/Steam/steamapps/workshop/content/294100/3819570122</RimUnityDir>
     <HarmonyPath Condition="'$(HarmonyPath)' == ''">D:/Steam/steamapps/workshop/content/294100/2009463077/1.7/Assemblies/0Harmony.dll</HarmonyPath>
     <RatkinAssemblyPath Condition="'$(RatkinAssemblyPath)' == ''">D:/Steam/steamapps/workshop/content/294100/1578693166/1.6/Assemblies/SYS.dll</RatkinAssemblyPath>
@@ -36,6 +36,8 @@
     <Compile Include="SpecialCharacter/**/*.cs" />
   </ItemGroup>
   <Target Name="ValidateMigrationReferences" BeforeTargets="ResolveReferences">
+    <Error Condition="!Exists('$(RimWorldDir)/Assembly-CSharp.dll')" Text="RimWorldDir 必须包含 RimWorld 1.7 的 Assembly-CSharp.dll。" />
+    <Error Condition="!Exists('$(RimWorldDir)/UnityStubs.dll')" Text="RimWorldDir 必须包含配套的 UnityStubs.dll。" />
     <Error Condition="!Exists('$(RimWorldDir)/Waylith.dll')" Text="RimWorldDir 必须指向本机 RimWorld 1.7 根目录。" />
     <Error Condition="!Exists('$(RimUnityDir)/1.7/Assemblies/RimUnity.dll')" Text="RimUnityDir 必须指向配套 RimUnity 模组根目录。" />
     <Error Condition="'$(HarmonyPath)' == '' Or !Exists('$(HarmonyPath)')" Text="请手动通过 HarmonyPath 配置 1.7 的 0Harmony.dll。" />

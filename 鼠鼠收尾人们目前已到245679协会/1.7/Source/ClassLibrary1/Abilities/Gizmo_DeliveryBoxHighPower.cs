@@ -8,6 +8,7 @@ namespace XIYUNTE
     // 高功率模式状态 Gizmo：仿原版护盾腰带/Flugel Gizmo_ShieldStatus。
     // 绘制「剩余时间(到严重度100%死亡)」与「护盾真实伤害条」两条，激活期间显示在角色栏。
     // 由 Hediff_DeliveryBoxHighPower.GetGizmos() 产出,即「Hediff 自绘的状态条」。
+    [StaticConstructorOnStartup]
     public class Gizmo_DeliveryBoxHighPower : Gizmo
     {
         public Hediff_DeliveryBoxHighPower hediff;
