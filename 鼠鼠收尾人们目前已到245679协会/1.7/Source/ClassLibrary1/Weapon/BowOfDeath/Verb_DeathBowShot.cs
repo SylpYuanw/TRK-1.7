@@ -36,17 +36,25 @@ namespace XIYUNTE
 
         public override bool Available()
         {
-            CompEquippable_DeathBow bow = Bow;
-            if (bow == null)
+            return Bow.CanShoot && base.Available();
+        }
+
+        public override bool CanHitTargetFrom(IntVec3 root, LocalTargetInfo target)
+        {
+            return Bow.CanShoot && base.CanHitTargetFrom(root, target);
+        }
+
+        public override void OrderForceTarget(LocalTargetInfo target)
+        {
+            if (Available())
             {
-                return false;
+                base.OrderForceTarget(target);
             }
-            return bow.FlashBowActive && !bow.IsSwitching && bow.Charges > 0 && base.Available();
         }
 
         protected override bool TryCastShot()
         {
-            bool fired = base.TryCastShot();
+            bool fired = Bow.CanShoot && base.TryCastShot();
             if (fired)
             {
                 Bow?.Notify_ShotFired(CasterPawn);
@@ -57,7 +65,7 @@ namespace XIYUNTE
         // 瞄准开始:预热状态建立后通知武器组件挂上瞄准特效;近战动词不经过这里,因此只有四阶蓄力射击会出特效。
         public override bool TryStartCastOn(LocalTargetInfo castTarg, LocalTargetInfo destTarg, bool surpriseAttack = false, bool canHitNonTargetPawns = true, bool preventFriendlyFire = false, bool nonInterruptingSelfCast = false)
         {
-            bool started = base.TryStartCastOn(castTarg, destTarg, surpriseAttack, canHitNonTargetPawns, preventFriendlyFire, nonInterruptingSelfCast);
+            bool started = Available() && base.TryStartCastOn(castTarg, destTarg, surpriseAttack, canHitNonTargetPawns, preventFriendlyFire, nonInterruptingSelfCast);
             if (started && WarmingUp)
             {
                 Bow?.Notify_AimStarted();

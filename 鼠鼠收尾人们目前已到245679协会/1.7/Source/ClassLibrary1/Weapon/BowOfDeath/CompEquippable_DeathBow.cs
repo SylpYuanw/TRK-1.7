@@ -55,6 +55,8 @@ namespace XIYUNTE
 
         public int Charges => charges;
 
+        public bool CanShoot => FlashBowActive && charges > 0 && !IsSwitching;
+
         public bool FlashBowActive
         {
             get
@@ -128,8 +130,7 @@ namespace XIYUNTE
 
         private Verb BowVerb => verbTracker?.AllVerbs?.FirstOrDefault(v => v is Verb_DeathBowShot);
 
-        // 把当前模式应用到射击动词:闪弓模式且仍有余弹时使用原版射击参数,原版攻击命令随之出现;
-        // 其余情况换成休眠参数,武器只剩近战动词与近战命令。
+        // 闪弓模式保留射击命令，只有装箭后才能选为主射击动词。
         public void ApplyModeToVerb()
         {
             Verb bowVerb = BowVerb;
@@ -138,17 +139,9 @@ namespace XIYUNTE
                 Log.ErrorOnce(parent.def.defName + " has no Verb_DeathBowShot; flash bow mode cannot be applied.", parent.def.shortHash ^ 0x5B08);
                 return;
             }
-            VerbProperties target = (FlashBowActive && charges > 0) ? ActiveProps : DormantProps;
-            if (target == null || bowVerb.verbProps == target)
-            {
-                return;
-            }
-            if (bowVerb.WarmingUp || bowVerb.Bursting)
-            {
-                return;
-            }
-            bowVerb.Reset();
-            bowVerb.verbProps = target;
+            bool flash = FlashBowActive;
+            DormantProps.hasStandardCommand = flash && ActiveProps.hasStandardCommand;
+            bowVerb.verbProps = flash && charges > 0 ? ActiveProps : DormantProps;
         }
 
         // 出厂即携带满次数,之后只能靠死之箭补充。
