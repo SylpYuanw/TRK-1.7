@@ -2,7 +2,7 @@
 <Defs>
   <!-- 四协会——死之弓:近战为弓臂,远程为"闪弓"技能射击。
        武器精度写在 statBases(原版武器卡与命中判定都读这里);蓄力阶的精度加成由 XIYUNTE.CompEquippable_DeathBow 通过 ThingComp.GetStatOffset 叠加。 -->
-  <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
+  <ThingDef Name="TrkDeathBow" ParentName="BaseMeleeWeapon_Sharp_Quality">
     <defName>Bow_of_Death</defName>
     <label>Si Association — Bow of Death</label>
     <description>The bow-blade used by the Si Association. The limbs themselves cut like a blade; drawing the string looses an Arrow of Death.\nEach draw consumes an Arrow of Death; when the arrows run out, only melee remains.</description>
@@ -50,22 +50,6 @@
         <cooldownTime>2.4</cooldownTime>
       </li>
     </tools>
-    <!-- 闪弓射击动词:普通模式下该动词不可用,武器自动退回近战;闪弓模式下作为主攻击动词。 -->
-    <verbs>
-      <li>
-        <verbClass>XIYUNTE.Verb_DeathBowShot</verbClass>
-        <label>Bow's Glimmer</label>
-        <isPrimary>true</isPrimary>
-        <hasStandardCommand>true</hasStandardCommand>
-        <defaultProjectile>BowOfDeath_Arrow_StageOne</defaultProjectile>
-        <warmupTime>4</warmupTime>
-        <range>44</range>
-        <!-- 瞄准(拉弓)音效:由原版 Stance_Warmup 以 Sustainer 循环播放,瞄准结束或被中断时自动收尾。 -->
-        <soundAiming>BowOfDeath_Aim</soundAiming>
-        <!-- 射击音效:射击成功那一帧由原版 Verb.TryCastNextBurstShot 单发播放。 -->
-        <soundCast>BowOfDeath_Shot</soundCast>
-      </li>
-    </verbs>
     <comps Inherit="False">
       <li Class="CompProperties_Forbiddable" />
       <li Class="CompProperties_Styleable" />
@@ -174,5 +158,29 @@
       </skillRequirements>
       <displayPriority>530</displayPriority>
     </recipeMaker>
+  </ThingDef>
+  <ThingDef ParentName="TrkDeathBow">
+    <defName>Bow_of_Death_Flash</defName>
+    <recipeMaker IsNull="True" />
+    <tradeability>None</tradeability>
+    <generateAllowChance>0</generateAllowChance>
+    <weaponTags Inherit="False" />
+    <thingSetMakerTags Inherit="False" />
+    <thingCategories Inherit="False" />
+    <verbs>
+      <li>
+        <verbClass>XIYUNTE.Verb_DeathBowShot</verbClass>
+        <label>Bow's Glimmer</label>
+        <isPrimary>true</isPrimary>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>BowOfDeath_Arrow_StageOne</defaultProjectile>
+        <warmupTime>4</warmupTime>
+        <range>44</range>
+        <!-- 瞄准(拉弓)音效:由原版 Stance_Warmup 以 Sustainer 循环播放,瞄准结束或被中断时自动收尾。 -->
+        <soundAiming>BowOfDeath_Aim</soundAiming>
+        <!-- 射击音效:射击成功那一帧由原版 Verb.TryCastNextBurstShot 单发播放。 -->
+        <soundCast>BowOfDeath_Shot</soundCast>
+      </li>
+    </verbs>
   </ThingDef>
 </Defs>

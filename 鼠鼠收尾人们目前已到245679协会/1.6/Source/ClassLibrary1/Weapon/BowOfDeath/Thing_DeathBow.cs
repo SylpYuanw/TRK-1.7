@@ -1,4 +1,3 @@
-using System.Linq;
 using System.Collections.Generic;
 using RimWorld;
 using Verse;
@@ -78,7 +77,7 @@ namespace XIYUNTE
             {
                 yield return new StatDrawEntry(StatCategoryDefOf.Weapon_Ranged, "StoppingPower".Translate(), projectile.stoppingPower.ToString("F1"), "StoppingPowerExplanation".Translate(), 5402);
             }
-            VerbProperties primaryVerb = def.Verbs?.FirstOrDefault(v => v.isPrimary);
+            VerbProperties primaryVerb = bow.ActiveProps;
             if (primaryVerb != null)
             {
                 yield return new StatDrawEntry(StatCategoryDefOf.Weapon_Ranged, "Range".Translate(), primaryVerb.range.ToString("F0"), "Stat_Thing_Weapon_Range_Desc".Translate(), 5390);

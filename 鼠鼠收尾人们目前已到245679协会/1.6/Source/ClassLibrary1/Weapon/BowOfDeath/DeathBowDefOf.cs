@@ -7,6 +7,9 @@ namespace XIYUNTE
     [DefOf]
     public static class DeathBowDefOf
     {
+        public static ThingDef Bow_of_Death;
+        public static ThingDef Bow_of_Death_Flash;
+
         public static HediffDef BowOfDeath_StuckArrow;
 
         public static HediffDef BowOfDeath_Consciousness;

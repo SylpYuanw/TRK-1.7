@@ -1,12 +1,69 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Administrator\\Desktop\\\u5929\u7FFC\u79CD\\\u9F20\u9F20\u6536\u5C3E\u4EBA\u4EEC\u76EE\u524D\u5DF2\u5230245679\u534F\u4F1A\\Source\\ClassLibrary1\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\Administrator\\Desktop\\\u5929\u7FFC\u79CD\\TRK-1.7\\\u9F20\u9F20\u6536\u5C3E\u4EBA\u4EEC\u76EE\u524D\u5DF2\u5230245679\u534F\u4F1A\\1.6\\Source\\ClassLibrary1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1C81E1F9-2B6F-4EE2-AADD-F59387E1E97E}|ClassLibrary1.csproj|c:\\users\\administrator\\desktop\\\u5929\u7FFC\u79CD\\trk-1.7\\\u9F20\u9F20\u6536\u5C3E\u4EBA\u4EEC\u76EE\u524D\u5DF2\u5230245679\u534F\u4F1A\\1.6\\source\\classlibrary1\\weapon\\weapon_deliverybox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C81E1F9-2B6F-4EE2-AADD-F59387E1E97E}|ClassLibrary1.csproj|solutionrelative:weapon\\weapon_deliverybox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C81E1F9-2B6F-4EE2-AADD-F59387E1E97E}|ClassLibrary1.csproj|C:\\Users\\Administrator\\Desktop\\\u5929\u7FFC\u79CD\\TRK-1.7\\\u9F20\u9F20\u6536\u5C3E\u4EBA\u4EEC\u76EE\u524D\u5DF2\u5230245679\u534F\u4F1A\\1.6\\Source\\ClassLibrary1\\specialcharacter\\dispatchlifecycle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C81E1F9-2B6F-4EE2-AADD-F59387E1E97E}|ClassLibrary1.csproj|solutionrelative:specialcharacter\\dispatchlifecycle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C81E1F9-2B6F-4EE2-AADD-F59387E1E97E}|ClassLibrary1.csproj|C:\\Users\\Administrator\\Desktop\\\u5929\u7FFC\u79CD\\TRK-1.7\\\u9F20\u9F20\u6536\u5C3E\u4EBA\u4EEC\u76EE\u524D\u5DF2\u5230245679\u534F\u4F1A\\1.6\\Source\\ClassLibrary1\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C81E1F9-2B6F-4EE2-AADD-F59387E1E97E}|ClassLibrary1.csproj|solutionrelative:properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Weapon_DeliveryBox.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\\u5929\u7FFC\u79CD\\TRK-1.7\\\u9F20\u9F20\u6536\u5C3E\u4EBA\u4EEC\u76EE\u524D\u5DF2\u5230245679\u534F\u4F1A\\1.6\\Source\\ClassLibrary1\\Weapon\\Weapon_DeliveryBox.cs",
+              "RelativeDocumentMoniker": "Weapon\\Weapon_DeliveryBox.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\\u5929\u7FFC\u79CD\\TRK-1.7\\\u9F20\u9F20\u6536\u5C3E\u4EBA\u4EEC\u76EE\u524D\u5DF2\u5230245679\u534F\u4F1A\\1.6\\Source\\ClassLibrary1\\Weapon\\Weapon_DeliveryBox.cs",
+              "RelativeToolTip": "Weapon\\Weapon_DeliveryBox.cs",
+              "ViewState": "AgIAAPwAAAAAAAAAAAAewBgBAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-07T08:42:42.882Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DispatchLifecycle.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\\u5929\u7FFC\u79CD\\TRK-1.7\\\u9F20\u9F20\u6536\u5C3E\u4EBA\u4EEC\u76EE\u524D\u5DF2\u5230245679\u534F\u4F1A\\1.6\\Source\\ClassLibrary1\\SpecialCharacter\\DispatchLifecycle.cs",
+              "RelativeDocumentMoniker": "SpecialCharacter\\DispatchLifecycle.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\\u5929\u7FFC\u79CD\\TRK-1.7\\\u9F20\u9F20\u6536\u5C3E\u4EBA\u4EEC\u76EE\u524D\u5DF2\u5230245679\u534F\u4F1A\\1.6\\Source\\ClassLibrary1\\SpecialCharacter\\DispatchLifecycle.cs",
+              "RelativeToolTip": "SpecialCharacter\\DispatchLifecycle.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-04T17:29:20.581Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AssemblyInfo.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\\u5929\u7FFC\u79CD\\TRK-1.7\\\u9F20\u9F20\u6536\u5C3E\u4EBA\u4EEC\u76EE\u524D\u5DF2\u5230245679\u534F\u4F1A\\1.6\\Source\\ClassLibrary1\\Properties\\AssemblyInfo.cs",
+              "RelativeDocumentMoniker": "Properties\\AssemblyInfo.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\\u5929\u7FFC\u79CD\\TRK-1.7\\\u9F20\u9F20\u6536\u5C3E\u4EBA\u4EEC\u76EE\u524D\u5DF2\u5230245679\u534F\u4F1A\\1.6\\Source\\ClassLibrary1\\Properties\\AssemblyInfo.cs",
+              "RelativeToolTip": "Properties\\AssemblyInfo.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-04T17:29:16.421Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

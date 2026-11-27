@@ -1,4 +1,5 @@
 using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace XIYUNTE
@@ -9,11 +10,25 @@ namespace XIYUNTE
     {
         private const int MaxArrowStacks = 4;
 
+        private bool applyStuckArrow;
+
+        public override void Launch(Thing launcher, Vector3 origin, LocalTargetInfo usedTarget, LocalTargetInfo intendedTarget, ProjectileHitFlags hitFlags, bool preventFriendlyFire = false, Thing equipment = null, ThingDef targetCoverDef = null)
+        {
+            base.Launch(launcher, origin, usedTarget, intendedTarget, hitFlags, preventFriendlyFire, equipment, targetCoverDef);
+            applyStuckArrow = equipment is Thing_DeathBow && launcher is Pawn pawn && pawn.CurJobDef != JobDefOf.Hunt;
+        }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Values.Look(ref applyStuckArrow, "deathBowApplyStuckArrow");
+        }
+
         protected override void Impact(Thing hitThing, bool blockedByShield = false)
         {
             base.Impact(hitThing, blockedByShield);
             Pawn pawn = hitThing as Pawn;
-            if (pawn == null || pawn.Dead || pawn.health?.hediffSet == null || pawn.RaceProps == null || !pawn.RaceProps.IsFlesh)
+            if (!applyStuckArrow || pawn == null || pawn.Dead || pawn.health?.hediffSet == null || pawn.RaceProps == null || !pawn.RaceProps.IsFlesh)
             {
                 return;
             }

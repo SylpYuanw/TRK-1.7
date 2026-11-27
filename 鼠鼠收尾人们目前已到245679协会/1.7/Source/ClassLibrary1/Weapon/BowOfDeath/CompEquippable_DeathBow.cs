@@ -4,6 +4,7 @@ using System.Text;
 using RimWorld;
 using UnityEngine;
 using Verse;
+using Verse.AI;
 using Verse.Sound;
 
 namespace XIYUNTE
@@ -44,8 +45,6 @@ namespace XIYUNTE
         private Mote aimStreakVfx;
 
         private Mote aimChargeVfx;
-
-        private VerbProperties activeProps;
 
         private VerbProperties dormantProps;
 
@@ -101,17 +100,7 @@ namespace XIYUNTE
         }
 
         // 参数来源为武器 Def 上的射击动词参数,休眠参数由它复制,不修改 Def 上的共享对象。
-        private VerbProperties ActiveProps
-        {
-            get
-            {
-                if (activeProps == null)
-                {
-                    activeProps = parent.def.Verbs?.FirstOrDefault(v => v.verbClass == typeof(Verb_DeathBowShot));
-                }
-                return activeProps;
-            }
-        }
+        internal VerbProperties ActiveProps => DeathBowDefOf.Bow_of_Death_Flash.Verbs[0];
 
         private VerbProperties DormantProps
         {
@@ -139,9 +128,15 @@ namespace XIYUNTE
                 Log.ErrorOnce(parent.def.defName + " has no Verb_DeathBowShot; flash bow mode cannot be applied.", parent.def.shortHash ^ 0x5B08);
                 return;
             }
-            bool flash = FlashBowActive;
-            DormantProps.hasStandardCommand = flash && ActiveProps.hasStandardCommand;
-            bowVerb.verbProps = flash && charges > 0 ? ActiveProps : DormantProps;
+            Pawn pawn = EquippedPawn;
+            bool ranged = pawn != null && FlashBowActive && charges > 0;
+            bool lostShot = bowVerb.verbProps == ActiveProps && !ranged;
+            bowVerb.verbProps = ranged ? ActiveProps : DormantProps;
+            parent.def = ranged ? DeathBowDefOf.Bow_of_Death_Flash : DeathBowDefOf.Bow_of_Death;
+            if ((lostShot || (!ranged && Scribe.mode == LoadSaveMode.PostLoadInit)) && pawn?.CurJob?.verbToUse == bowVerb)
+            {
+                pawn.jobs.curDriver.AddFailCondition(() => true);
+            }
         }
 
         // 出厂即携带满次数,之后只能靠死之箭补充。
@@ -149,6 +144,9 @@ namespace XIYUNTE
         {
             base.PostPostMake();
             charges = Props.maxCharges;
+            // 两种形态共用这把弓的动词，原版按同一个 Def 生成和恢复动词 ID。
+            parent.def = DeathBowDefOf.Bow_of_Death_Flash;
+            verbTracker.InitVerbsFromZero();
             ApplyModeToVerb();
         }
 
@@ -156,6 +154,12 @@ namespace XIYUNTE
         {
             base.Notify_Equipped(pawn);
             ApplyModeToVerb();
+        }
+
+        public override void Notify_Unequipped(Pawn pawn)
+        {
+            base.Notify_Unequipped(pawn);
+            parent.def = DeathBowDefOf.Bow_of_Death;
         }
 
         // 当前蓄力阶的精度加成作用于武器自身的四段精度统计,命中判定与武器面板同时读取该值。
@@ -197,7 +201,10 @@ namespace XIYUNTE
                 charges--;
             }
             ApplyModeToVerb();
-            ApplyConsciousnessBoost(shooter);
+            if (shooter.CurJobDef != JobDefOf.Hunt)
+            {
+                ApplyConsciousnessBoost(shooter);
+            }
         }
 
         // 意识增益:已存在时只刷新持续时间,避免多次射击把增益堆叠成更高数值。
@@ -255,6 +262,10 @@ namespace XIYUNTE
         // 蓄力阶切换:耗时来自 stageSwitchTicks,生效时播放该阶音效并浮现切换印迹。
         private void RequestStageSwitch(int stage)
         {
+            if (!FlashBowActive)
+            {
+                return;
+            }
             int clampedStage = Mathf.Clamp(stage, 0, MaxStageIndex);
             if (Props.stageSwitchTicks <= 0)
             {
@@ -289,6 +300,10 @@ namespace XIYUNTE
 
         private void ApplyPendingIfReady()
         {
+            if (!hasPendingStageSwitch && !hasPendingModeSwitch)
+            {
+                return;
+            }
             int now = Find.TickManager.TicksGame;
             if (hasPendingStageSwitch && now >= stageSwitchReadyTick)
             {
@@ -423,11 +438,38 @@ namespace XIYUNTE
             {
                 yield break;
             }
-            // 上一次射击后次数可能变化,这里把状态同步一次到射击动词。
-            ApplyModeToVerb();
             yield return MakeModeGizmo();
-            yield return MakeStageGizmo();
+            if (FlashBowActive)
+            {
+                yield return MakeStageGizmo();
+                if (charges == 0 && PawnAttackGizmoUtility.CanShowEquipmentGizmos())
+                {
+                    yield return EmptyShotCommand();
+                }
+            }
             yield return MakeLoadGizmo(pawn);
+        }
+
+        private Command_VerbTarget EmptyShotCommand()
+        {
+            // 单独取出原版射击命令，装备栏仍由原版为弓臂分配近战快捷键。
+            DormantProps.hasStandardCommand = true;
+            Command_VerbTarget command;
+            try
+            {
+                command = (Command_VerbTarget)GetVerbsCommands().First();
+            }
+            finally
+            {
+                DormantProps.hasStandardCommand = false;
+            }
+            // 原版按 ownerThing.def 合并命令，空射命令需与同一把弓的近战命令分开。
+            command.ownerThing = null;
+            command.icon = parent.def.uiIcon;
+            command.groupable = false;
+            if (!command.Disabled)
+                command.Disable("BowOfDeath_NoAmmo".Translate());
+            return command;
         }
 
         // 模式切换:普通模式只保留近战;闪弓模式且仍有余弹时恢复原版射击参数,原版远程攻击命令随之出现在装备按钮栏。
@@ -533,7 +575,22 @@ namespace XIYUNTE
 
         public override void PostExposeData()
         {
-            base.PostExposeData();
+            // 原版 VerbTracker 按所有者的 Def 匹配动词 ID；与创建时使用同一份定义。
+            if (Scribe.EnterNode("verbTracker"))
+            {
+                ThingDef savedForm = parent.def;
+                try
+                {
+                    if (Scribe.mode == LoadSaveMode.ResolvingCrossRefs)
+                        parent.def = DeathBowDefOf.Bow_of_Death_Flash;
+                    verbTracker.ExposeData();
+                }
+                finally
+                {
+                    parent.def = savedForm;
+                    Scribe.ExitNode();
+                }
+            }
             Scribe_Values.Look(ref modeIndex, "deathBowMode", MeleeMode);
             Scribe_Values.Look(ref stageIndex, "deathBowStage", 0);
             Scribe_Values.Look(ref charges, "deathBowCharges", 0);
